@@ -1,0 +1,105 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* header start */
+.my-info__header {
+  padding: 5px 150px;
+  display: flex;
+  justify-content: space-between;
+  background: #ff5757;
+  box-shadow: 0 2px 1px #ff5757;
+  align-items: center;
+}
+
+.my-info__header .my-info-nav__list ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.my-info__header .my-info-nav__list {
+  background: #ff5757;
+}
+
+.my-info__header .my-info-nav__list ul li a {
+  color: white;
+  font-weight: bold;
+}
+
+.my-info__header .my-info-nav__list ul li a:hover {
+  border-bottom: 2px solid #eee;
+}
+
+#my-page__choice {
+  /* color: black; */
+  border-bottom: 2px solid #eee;
+}
+/* header end */
+
+/* content start */
+.my-info__container {
+  width: 25em;
+  max-width: 95%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: 1.5em auto;
+  padding: 2em;
+}
+
+.my-info__title {
+  margin-bottom: 1.25em;
+  color: #ff5757;
+}
+
+.my-info__data {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-info__data span {
+  margin: 0 0 0.25em 0.35em;
+  letter-spacing: 1px;
+}
+
+.my-info__container input {
+  padding: 0.45em 0.5em;
+  font-size: 1em;
+  margin-bottom: 1em;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.my-info__container input::placeholder {
+  color: black;
+}
+
+.my-info__change {
+  margin-top: 1em;
+  text-align: center;
+  display: flex;
+}
+
+.my-info__change button {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0.45em 0.5em;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #ff5757;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
+.my-info__change button:nth-of-type(2) {
+  margin-left: 1em;
+}
+/* content end */

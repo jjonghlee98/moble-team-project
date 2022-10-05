@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Page</title>
+    <link rel="stylesheet" href="./css/myInfo.css" />
+  </head>
+  <body>
+    <!-- header start -->
+    <header class="my-info__header">
+      <div>
+        <a href="./main.html">
+          <img
+            src="../images/logo_white.png"
+            alt="logo"
+            id="jeogi-logo__img"
+            width="180px"
+          />
+        </a>
+      </div>
+      <nav class="my-info-nav__list">
+        <ul>
+          <li>
+            <a href="./findCourse.html">코스찾기</a>
+          </li>
+          <li>
+            <a href="#">내코스</a>
+          </li>
+          <li>
+            <a href="./myInfo.html" id="my-page__choice">마이페이지</a>
+          </li>
+          <li>
+            <a href="login.html">로그인</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- header end -->
+
+    <!-- content start -->
+    <main>
+      <div class="my-info__container">
+        <div class="my-info__title">
+          <h2>내 정보 (CONTINUE)</h2>
+        </div>
+        <!-- thymeleaf -->
+        <div class="my-info__data">
+          <span>아이디</span>
+          <input type="text" th:value="${myInfo.u_id}" disabled />
+          <span>비밀번호</span>
+          <input type="password" th:value="${myInfo.u_pw}" disabled />
+          <span>닉네임</span>
+          <input type="text" th:value="${myInfo.u_nick}" disabled />
+          <span>성별</span>
+          <input type="text" th:value="${myInfo.gender}" disabled />
+          <span>생년월일</span>
+          <input type="text" th:value="${myInfo.birth}" disabled />
+        </div>
+        <!-- thymeleaf -->
+
+        <div class="my-info__change">
+          <button type="button" onclick="location.href='./myInfoSetting.html'">
+            정보수정
+          </button>
+          <button type="button" onclick="location.href='./withdrawal.html'">
+            회원탈퇴
+          </button>
+          <!-- <button type="button">돌아가기</button> -->
+        </div>
+      </div>
+    </main>
+    <!-- content end -->
+  </body>
+</html>

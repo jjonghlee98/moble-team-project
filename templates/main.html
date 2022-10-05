@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MainPage</title>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <!-- header start -->
+    <header class="main-header">
+      <div>
+        <a href="./main.html">
+          <img
+            src="../images/logo_white.png"
+            alt="logo"
+            id="jeogi-logo__img"
+            width="180px"
+          />
+        </a>
+      </div>
+      <nav class="main-nav__list">
+        <ul>
+          <li>
+            <a href="./findCourse.html">코스찾기</a>
+          </li>
+          <li>
+            <a href="#">내코스</a>
+          </li>
+          <li>
+            <a href="./myInfo.html">마이페이지</a>
+          </li>
+          <li>
+            <a href="login.html">로그인</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="dropdown">
+        <div class="dropdown__icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="dropdown__content">
+          <a href="#">찜목록</a>
+          <a href="#">마이페이지</a>
+          <a href="#">로그인</a>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+    <!-- content start -->
+    <main class="main-container">
+      <article class="main-content">
+        <div class="test1">
+          <div class="test1_1">
+            <span> </span>
+          </div>
+          <div class="test1_2" onclick="location.href='findCourse.html'">
+            <span>코스찾기</span>
+          </div>
+        </div>
+
+        <div class="test2">
+          <div class="test2_1">
+            <span>내코스</span>
+          </div>
+          <div class="test2_2">
+            <span> </span>
+          </div>
+        </div>
+      </article>
+      <!-- content end -->
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

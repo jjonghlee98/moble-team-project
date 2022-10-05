@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Info Setting</title>
+    <link rel="stylesheet" href="./css/myInfoSetting.css" />
+  </head>
+  <body>
+    <!-- header start -->
+    <header class="my-info__header">
+      <div>
+        <a href="./main.html">
+          <img
+            src="../images/logo_white.png"
+            alt="logo"
+            id="jeogi-logo__img"
+            width="180px"
+          />
+        </a>
+      </div>
+      <nav class="my-info-nav__list">
+        <ul>
+          <li>
+            <a href="./findCourse.html">코스찾기</a>
+          </li>
+          <li>
+            <a href="#">내코스</a>
+          </li>
+          <li>
+            <a href="./myInfo.html" id="my-page__choice">마이페이지</a>
+          </li>
+          <li>
+            <a href="login.html">로그인</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- header end -->
+
+    <!-- content start -->
+    <main>
+      <div class="my-info-setting__container">
+        <div class="my-info-setting__title">
+          <h2>회원정보수정 (CONTINUE)</h2>
+        </div>
+
+        <div class="my-info-setting__data">
+          <span>아이디</span>
+          <input type="text" th:value="${myInfo.u_id}" disabled />
+          <span>새 비밀번호</span>
+          <input type="password" th:value="${myInfo.u_pw}" id="new_password" />
+          <span>새 비밀번호 확인</span>
+          <input
+            type="password"
+            th:value="${myInfo.u_pw}"
+            id="re-new_password"
+          />
+          <span>닉네임</span>
+          <input type="text" th:value="${myInfo.u_nick}" id="new-nickname" />
+          <div class="gender-box">
+            <span id="gender-box__choice">성별</span>
+            <div class="gender-box__input">
+              <label>
+                <input type="radio" name="new-gender" value="0" checked />
+                <span>여자</span>
+              </label>
+              <label>
+                <input type="radio" name="new-gender" value="1" />
+                <span>남자</span>
+              </label>
+            </div>
+          </div>
+          <div class="birth-box__container">
+            <span id="birth-span">생년월일</span>
+            <div class="info" id="birth-box">
+              <select name="birth-year" id="birth-box__year" class="change-box">
+                <option disabled selected>출생 연도</option>
+              </select>
+              <select
+                name="birth-month"
+                id="birth-box__month"
+                class="change-box"
+              >
+                <option disabled selected>월</option>
+              </select>
+              <select name="birth-day" id="birth-box__day" class="change-box">
+                <option disabled selected>일</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-info-setting__change">
+          <button type="button" id="save_data">저장</button>
+          <button type="button" onclick="location.href='./myInfo.html'">
+            돌아가기
+          </button>
+        </div>
+      </div>
+    </main>
+    <!-- content end -->
+    <script src="./js/myInfoSetting.js"></script>
+  </body>
+</html>

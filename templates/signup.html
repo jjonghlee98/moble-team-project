@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp</title>
+    <link rel="stylesheet" href="./css/signup.css" />
+  </head>
+  <body>
+    <!-- sign-up container -->
+    <div class="signup-container">
+      <!-- sign-up -->
+      <div class="signup">
+        <a href="./main.html">
+          <img
+            src="../images/logo.png"
+            alt="jeogi"
+            height="50px"
+            style="margin-bottom: 50px"
+          />
+        </a>
+        <form action="192.168.0.158/sign/signUp" method="post" id="signup-form">
+          <div class="signup-info">
+            <input
+              type="text"
+              id="user_id"
+              name="user_id"
+              placeholder="아이디"
+              required
+            />
+
+            <div id="id_error"></div>
+
+            <input
+              type="password"
+              id="user_pw"
+              name="user_pw"
+              placeholder="비밀번호"
+              autocomplete="off"
+              minlength="8"
+              maxlength="15"
+              required
+            />
+
+            <div id="pw_error"></div>
+
+            <input
+              type="password"
+              id="user_pw_re"
+              name="user_pw_re"
+              required
+              placeholder="비밀번호 확인"
+              minlength="8"
+              maxlength="15"
+              autocomplete="off"
+            />
+
+            <div id="pw_re_error"></div>
+
+            <input
+              type="text"
+              id="user_nick"
+              name="user_nick"
+              required
+              placeholder="닉네임"
+            />
+
+            <div id="nick_error"></div>
+          </div>
+
+          <div class="signup-gender">
+            <label>
+              <input type="radio" name="gender" value="0" checked />
+              <span>여자</span>
+            </label>
+            <label>
+              <input type="radio" name="gender" value="1" />
+              <span>남자</span>
+            </label>
+          </div>
+
+          <div class="info" id="info__birth">
+            <select name="birth-year" id="birth-year" class="box">
+              <option disabled selected>출생 연도</option>
+            </select>
+            <select name="birth-month" id="birth-month" class="box">
+              <option disabled selected>월</option>
+            </select>
+            <select name="birth-day" id="birth-day" class="box">
+              <option disabled selected>일</option>
+            </select>
+          </div>
+
+          <div class="signup-submit">
+            <button type="button" id="signupBtn">회원가입</button>
+            <button type="button" onclick="location.href='./login.html'">
+              가입취소
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- sign-up -->
+    </div>
+    <!-- sign-up container -->
+    <script src="./js/signup.js"></script>
+  </body>
+</html>
