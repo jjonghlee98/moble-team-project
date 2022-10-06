@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Favorite Course</title>
+    <link rel="stylesheet" href="./css/myFavoriteCourse.css" />
+    <!-- font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    /> -->
+    <!-- font -->
+  </head>
+  <body>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b1cf534f0124bbf03d02def34505c63&libraries=services,clusterer,drawing"
+    ></script>
+    <!-- header -->
+    <header class="my-fav__header">
+      <div>
+        <a href="./main.html">
+          <img
+            src="../images/logo_white.png"
+            alt="logo"
+            id="jeogi-logo__img"
+            width="180px"
+          />
+        </a>
+      </div>
+      <nav class="my-fav__nav__list">
+        <ul>
+          <li>
+            <a href="./findCourse.html">코스찾기</a>
+          </li>
+          <li>
+            <a
+              href="./myFavoriteCourse.html"
+              style="border-bottom: 2px solid white"
+              >내코스</a
+            >
+          </li>
+          <li>
+            <a href="./myInfo.html">마이페이지</a>
+          </li>
+          <li>
+            <a href="./login.html">로그인</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- header -->
+
+    <!-- main-content -->
+    <main>
+      <article class="my-fav__container">
+        <!-- user Favorite Course place -->
+        <div class="my-fav-list__container">
+          <!-- contents ( 10개 ) -->
+          <section>
+            <div class="items">
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description">
+                  <h1>찜!</h1>
+                </div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+
+              <div class="my-fav-list">
+                <div class="my-fav-list__image">
+                  <img src="../images/logo_white_ver2.png" alt="어때" />
+                </div>
+                <div class="my-fav-list__description"><h1>찜!</h1></div>
+              </div>
+            </div>
+          </section>
+          <!-- contents -->
+        </div>
+        <!-- user Favorite Course place -->
+
+        <!-- kakao map api -->
+        <div class="my-fav__map">
+          <div id="map"></div>
+        </div>
+        <!-- kakao map api -->
+      </article>
+    </main>
+    <!-- main-content -->
+
+    <!-- kakao map api - javascript -->
+    <!-- <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b1cf534f0124bbf03d02def34505c63"
+    ></script> -->
+    <script src="./js/myFavoriteCourseMap.js"></script>
+    <script src="./js/myFavoriteCourse.js"></script>
+    <!-- kakao map api - javascript -->
+  </body>
+</html>

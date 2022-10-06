@@ -1,0 +1,140 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  /* transition: 0.7s; */
+  /* font-family: 'Jua', sans-serif; */
+  letter-spacing: 1px;
+}
+
+/* header */
+.my-fav__header {
+  padding: 5px 150px;
+  display: flex;
+  justify-content: space-between;
+  background: #ff5757;
+  box-shadow: 0 2px 1px #ff5757;
+  align-items: center;
+}
+
+.my-fav__header .my-fav__nav__list ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.my-fav__header .my-fav__nav__list {
+  background: #ff5757;
+}
+
+.my-fav__header .my-fav__nav__list ul li a {
+  color: white;
+  font-weight: bold;
+}
+/* header */
+
+/* main content */
+.my-fav__container {
+  display: flex;
+  width: 70em;
+  height: 37em;
+  max-width: 95%;
+  margin: 2rem auto;
+  /* box-shadow: 0 1px 5px #ff5757; */
+  border: 2px solid #ff5757;
+  border-radius: 7px;
+  padding: 1em;
+}
+
+.my-fav__container .my-fav__map #map {
+  width: 45em;
+  height: 35em;
+  border: 10px solid #eeea;
+  border-radius: 5px;
+}
+
+.my-fav-list__container {
+  width: 25em;
+  padding-right: 1em;
+  text-align: center;
+}
+
+.items {
+  max-height: 35em;
+  padding-top: 0.5em;
+  overflow-y: scroll;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+}
+
+.items::-webkit-scrollbar {
+  width: 0px;
+}
+
+.my-fav-list {
+  display: flex;
+  height: 5em;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  padding: 0.25em;
+  align-items: center;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.my-fav-list:hover {
+  background: #eee;
+}
+
+.my-fav-list__image {
+  display: flex;
+  width: 4.5em;
+  height: 4.5em;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  background: #ff5757;
+}
+
+.my-fav-list__image img {
+  margin: auto;
+  width: 3.25em;
+  height: 1.25em;
+}
+
+.my-fav-list__description {
+  flex-grow: 2;
+}
+
+.custom_content {
+  position: relative;
+  bottom: 75px;
+  color: white;
+  background: #ff5757;
+  border: 3px solid #ff5757;
+  border-radius: 20px;
+  text-align: center;
+  padding: 0.5em 0.75em;
+  font-size: 1.25em;
+}
+/* main content */
+
+@media (max-width: 1080px) {
+  .my-fav__container {
+    width: 60em;
+    min-width: 32.25em;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .my-fav-list__container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .my-fav__container .my-fav__map #map {
+    width: 100%;
+    height: 30em;
+    margin-top: 1em;
+  }
+}

@@ -137,6 +137,21 @@
 .find-course-list__description {
   flex-grow: 2;
 }
+
+.find-course-list__image {
+  display: flex;
+  width: 4.5em;
+  height: 4.5em;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  background: #ff5757;
+}
+
+.find-course-list__image img {
+  margin: auto;
+  width: 3.25em;
+  height: 1.25em;
+}
 /* main content */
 
 @media (max-width: 1080px) {
