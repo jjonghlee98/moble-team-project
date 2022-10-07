@@ -4,7 +4,7 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  transition: 0.7s;
+  /* transition: 0.7s; */
 }
 
 /* header */
@@ -34,7 +34,6 @@
 
 /* main content */
 .find-course__container {
-  
   display: flex;
   width: 70em;
   height: 37em;
@@ -109,6 +108,35 @@
 
 .items::-webkit-scrollbar {
   width: 0px;
+}
+
+.radius {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.radius > button {
+  flex: 1;
+  border: 1px solid #eee;
+  margin-right: 5px;
+  padding: 0.25em 0.5em;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.radius > button:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.radius > button:hover {
+  background: #ff5757;
+  color: white;
+}
+
+.active-color {
+  background: #ff5757;
+  color: white;
 }
 
 .find-course-list {

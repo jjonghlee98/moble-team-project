@@ -61,7 +61,7 @@
 }
 
 .items {
-  max-height: 35em;
+  max-height: 33em;
   padding-top: 0.5em;
   overflow-y: scroll;
   border-top: 2px solid #eee;
@@ -70,6 +70,35 @@
 
 .items::-webkit-scrollbar {
   width: 0px;
+}
+
+.radius {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.radius > button {
+  flex: 1;
+  border: 1px solid #eee;
+  margin-right: 5px;
+  padding: 0.25em 0.5em;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.radius > button:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.radius > button:hover {
+  background: #ff5757;
+  color: white;
+}
+
+.active-color {
+  background: #ff5757;
+  color: white;
 }
 
 .my-fav-list {
