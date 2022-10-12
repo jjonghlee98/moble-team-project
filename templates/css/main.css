@@ -4,11 +4,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  letter-spacing: 1px;
 }
 
 /* header start */
 .main-header {
-  padding: 5px 150px;
+  padding: 5px 60px;
   display: flex;
   justify-content: space-between;
   background: #ff5757;
@@ -106,7 +107,7 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  width: 60em;
+  width: 70em;
   max-width: 95%;
   height: 35em;
   margin: 2em auto;
@@ -116,7 +117,6 @@
 
 .test1 {
   display: flex;
-  height: 15.75em;
   justify-content: space-between;
   min-height: 15.75em;
   flex: 1;
@@ -130,7 +130,7 @@
   color: #ff5757;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
-  border: 3px solid #ff5757;
+  border: 2px solid #ff5757;
 }
 
 .test1_2 {
@@ -169,7 +169,7 @@
   color: #ff5757;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
-  border: 3px solid #ff5757;
+  border: 2px solid #ff5757;
 }
 
 .test1_2:hover,

@@ -29,7 +29,7 @@ loginBtn.addEventListener("click", (e) => {
     alert("로그인되었습니다.");
     console.log("로그인 성공");
 
-    fetch("/login/signIn", {
+    fetch("192.168.0.107/login/signIn", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(req),

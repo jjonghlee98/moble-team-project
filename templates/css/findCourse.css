@@ -5,11 +5,12 @@
   text-decoration: none;
   box-sizing: border-box;
   /* transition: 0.7s; */
+  letter-spacing: 1px;
 }
 
 /* header */
 .find-course__header {
-  padding: 5px 150px;
+  padding: 5px 60px;
   display: flex;
   justify-content: space-between;
   background: #ff5757;
@@ -35,7 +36,7 @@
 /* main content */
 .find-course__container {
   display: flex;
-  width: 70em;
+  /* width: 70em; */
   height: 37em;
   max-width: 95%;
   margin: 2rem auto;
@@ -45,8 +46,12 @@
   padding: 1em;
 }
 
+.find-course__container .find-course__map {
+  flex: 2;
+}
+
 .find-course__container .find-course__map #map {
-  width: 45em;
+  /* width: 45em; */
   height: 35em;
   border: 10px solid #eeea;
   border-radius: 5px;
@@ -54,7 +59,8 @@
 }
 
 .find-course-list__container {
-  width: 25em;
+  /* width: 25em; */
+  flex: 1;
   padding-left: 1em;
   text-align: center;
 }
@@ -139,15 +145,54 @@
   color: white;
 }
 
-.find-course-list {
-  display: flex;
-  height: 5em;
+.right-box3 {
+  height: 29.15em;
+  overflow-y: scroll;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  padding: 0.5em 0; 
+}
+
+.right-box3::-webkit-scrollbar {
+  width: 0px;
+}
+
+#placesList > li {
+  height: 9em;
   border: 2px solid #eee;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 0.25em;
   align-items: center;
   margin-bottom: 1em;
   cursor: pointer;
+}
+
+#placesList > li:hover {
+  transition: 0.5s all ease;
+  background: #eee;
+}
+
+.info > h5 {
+  font-size: 1.25em;
+  border: 1px solid #fff;
+  background: #ff5757;
+  color: white;
+  border-radius: 8px;
+  padding: 0.5em 0;
+  margin-bottom: 0.5em;
+}
+
+.tel {
+  display: block;
+  margin-top: 0.5em;
+  font-weight: bold;
+}
+
+#pagination a {
+  margin: 0 0.25em;
+  font-size: 1.12em;
+  color: black;
+  font-weight: bold;
 }
 
 .find-course-list:hover {
@@ -180,6 +225,7 @@
   width: 3.25em;
   height: 1.25em;
 }
+
 /* main content */
 
 @media (max-width: 1080px) {

@@ -11,7 +11,7 @@
 
 /* header */
 .my-fav__header {
-  padding: 5px 150px;
+  padding: 5px 60px;
   display: flex;
   justify-content: space-between;
   background: #ff5757;
@@ -37,39 +37,43 @@
 /* main content */
 .my-fav__container {
   display: flex;
-  width: 70em;
+  /* width: 70em; */
   height: 37em;
   max-width: 95%;
   margin: 2rem auto;
-  /* box-shadow: 0 1px 5px #ff5757; */
   border: 2px solid #ff5757;
   border-radius: 7px;
   padding: 1em;
 }
 
+.my-fav__container .my-fav__map {
+  flex: 2;
+}
+
 .my-fav__container .my-fav__map #map {
-  width: 45em;
-  height: 35em;
+  /* width: 45em; */
+  height: 34.76em;
   border: 10px solid #eeea;
   border-radius: 5px;
 }
 
 .my-fav-list__container {
-  width: 25em;
+  flex: 1;
+  /* width: 25em; */
   padding-right: 1em;
   text-align: center;
-}
-
-.items {
-  max-height: 33em;
-  padding-top: 0.5em;
   overflow-y: scroll;
   border-top: 2px solid #eee;
   border-bottom: 2px solid #eee;
 }
 
-.items::-webkit-scrollbar {
+.my-fav-list__container::-webkit-scrollbar {
   width: 0px;
+}
+
+.items {
+  /* max-height: 33em; */
+  padding-top: 0.5em;
 }
 
 .radius {

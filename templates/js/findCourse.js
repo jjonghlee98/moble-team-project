@@ -22,14 +22,14 @@ const data = [
 
 const h1 = document.querySelector("h1");
 
-h1.innerText = data[0]["documents"][0]["place_name"];
+// h1.innerText = data[0]["documents"][0]["place_name"];
 
 const cafeInfo = data[0]["documents"];
 
 let locPosition = new kakao.maps.LatLng(cafeInfo[0]["y"], cafeInfo[0]["x"]),
   message = cafeInfo[0]["place_name"];
 
-displayMarker(locPosition, message);
+// displayMarker(locPosition, message);
 
 // 반경 설정
 const radiusButton = document.querySelectorAll("button");
