@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingi Course</title>
+    <link rel="stylesheet" href="./css/ingi.css" />
+    <!-- font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    /> -->
+    <!-- font -->
+  </head>
+  <body>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b1cf534f0124bbf03d02def34505c63&libraries=services,clusterer,drawing"
+    ></script>
+    <!-- header -->
+    <header class="ingi__header">
+      <div>
+        <a href="./main.html">
+          <img
+            src="../images/logo_white.png"
+            alt="logo"
+            id="jeogi-logo__img"
+            width="180px"
+          />
+        </a>
+      </div>
+      <nav class="ingi__nav__list">
+        <ul> 
+          <li><a href="./ingi.html">인기코스</a></li>
+          <li>
+            <a href="./findCourse.html">코스찾기</a>
+          </li>
+          <li>
+            <a
+              href="./myFavoriteCourse.html"
+              >내코스</a
+            >
+          </li>
+          <li>
+            <a href="./myInfo.html">마이페이지</a>
+          </li>
+          <li>
+            <a href="./login.html">로그인</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- header -->
+
+    <!-- main-content -->
+    <main>
+      <article class="ingi__container">
+        <!-- user Favorite Course place -->
+        <div class="ingi-list__container">
+          <!-- contents ( 10개 ) -->
+          <section>
+            <!-- <div class="radius">
+              <button class="radius__button" value="50">50m</button>
+              <button class="radius__button" value="100">100m</button>
+              <button class="radius__button" value="150">150m</button>
+              <button class="radius__button" value="200">200m</button>
+            </div> -->
+            <div class="items">
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <div class="items-img">
+                    <img src="../images/dasom.jpg" alt="이미지올시다">
+                  </div>
+                    <span class="road_address"></span
+                  >,
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>,                 <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+              <div class="ingi-list">
+                <div class="ingi-list__description">
+                  <h1>찜!</h1>
+                  <span class="road_address"></span>
+                  <span class="address"></span>
+                  <span class="phone"></span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- contents -->
+        </div>
+        <!-- user Favorite Course place -->
+
+        <!-- kakao map api -->
+        <div class="ingi__map">
+          <div id="map"></div>
+        </div>
+        <!-- kakao map api -->
+      </article>
+    </main>
+    <!-- main-content -->
+
+    <!-- kakao map api - javascript -->
+    <!-- <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b1cf534f0124bbf03d02def34505c63"
+    ></script> -->
+    <script src="./js/ingiMap.js"></script>
+    <script src="./js/ingiCourse.js"></script>
+    <!-- kakao map api - javascript -->
+  </body>
+</html>
