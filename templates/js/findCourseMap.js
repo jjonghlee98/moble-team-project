@@ -30,7 +30,7 @@ function locationLoadSuccess(pos) {
 
   // 기존에 마커가 있다면 제거
   marker.setMap(null);
-  
+
   // 위치가 다르게 떠서 일단 주석처리함
   // marker.setMap(map);
 }
@@ -160,7 +160,8 @@ function getListItem(index, places) {
     itemStr +=
       "    <span class='road_address'>" +
       places.road_address_name +
-      "</span>" + " / " +
+      "</span>" +
+      " / " +
       '   <span class="jibun gray">' +
       places.address_name +
       "</span>";

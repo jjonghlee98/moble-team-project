@@ -107,17 +107,16 @@
 
 .my-fav-list {
   display: flex;
-  height: 5em;
+  justify-content: space-between;
   border: 2px solid #eee;
-  border-radius: 5px;
-  padding: 0.25em;
-  align-items: center;
   margin-bottom: 1em;
+  border-radius: 12px;
+  padding: 1em;
   cursor: pointer;
 }
 
 .my-fav-list:hover {
-  background: #eee;
+  background: lightgoldenrodyellow;
 }
 
 .my-fav-list__image {
@@ -136,7 +135,42 @@
 }
 
 .my-fav-list__description {
-  flex-grow: 2;
+  border: 1px solid #ff5757;
+  border-radius: 12px;
+  width: 13em;
+  height: 15em;
+  padding: 0.25em;
+}
+
+.my-fav-list__description h1 {
+  border: 1px solid #eee;
+  background: #ff5757;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.9em;
+  padding: 0.25em 0;
+}
+
+.first__item {
+  height: 12.7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.first__description {
+  font-size: 0.85em;
+}
+
+.second__item {
+  height: 12.7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.second__description {
+  font-size: 0.85em;
 }
 
 .custom_content {

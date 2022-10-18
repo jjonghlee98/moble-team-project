@@ -54,7 +54,8 @@ function displayMarker(locPosition, message) {
   });
   customOverlay.setMap(null);
 
-  kakao.maps.event.addListener(marker, "mouseover", () => {
+  // 마커가 최상단에서만 마우스를 인식함,,,
+  kakao.maps.event.addListener(marker, "click", () => {
     customOverlay.setMap(map);
   });
 

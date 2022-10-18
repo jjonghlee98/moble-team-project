@@ -1,209 +1,120 @@
 const data = [
   {
-    documents: [
-      {
-        place_url: "http://place.map.kakao.com/287484837",
-        place_name: "그레이츄",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 오성7길 42",
-        category_name: "음식점 > 카페 > 테마카페 > 디저트카페",
-        distance: "386",
-        phone: "",
-        category_group_code: "CE7",
-        x: "127.13256939448158",
-        y: "36.832239894673286",
-        address_name: "충남 천안시 서북구 두정동 749",
-        id: "287484837",
-      },
-      {
-        place_url: "http://place.map.kakao.com/17884789",
-        place_name: "스타벅스 천안두정점",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 부성4길 3",
-        category_name: "음식점 > 카페 > 커피전문점 > 스타벅스",
-        distance: "420",
-        phone: "",
-        category_group_code: "CE7",
-        x: "127.134840222862",
-        y: "36.83398729098",
-        address_name: "충남 천안시 서북구 두정동 975-1",
-        id: "17884789",
-      },
-      {
-        place_url: "http://place.map.kakao.com/13064309",
-        place_name: "투썸플레이스 천안두정점",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 부성1길 3",
-        category_name: "음식점 > 카페 > 커피전문점 > 투썸플레이스",
-        distance: "489",
-        phone: "041-522-8899",
-        category_group_code: "CE7",
-        x: "127.13565406687803",
-        y: "36.833980057467116",
-        address_name: "충남 천안시 서북구 두정동 973",
-        id: "13064309",
-      },
-      {
-        place_url: "http://place.map.kakao.com/1396273892",
-        place_name: "헬로밀가루 천안점",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 두정로 127",
-        category_name: "음식점 > 카페 > 테마카페 > 키즈카페",
-        distance: "138",
-        phone: "041-522-2535",
-        category_group_code: "CE7",
-        x: "127.130993103758",
-        y: "36.8341069334416",
-        address_name: "충남 천안시 서북구 두정동 1989",
-        id: "1396273892",
-      },
-      {
-        place_url: "http://place.map.kakao.com/209092160",
-        place_name: "977번지",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 부성4길 10",
-        category_name: "음식점 > 카페 > 테마카페",
-        distance: "432",
-        phone: "0507-1343-0699",
-        category_group_code: "CE7",
-        x: "127.135173019274",
-        y: "36.834541994932",
-        address_name: "충남 천안시 서북구 두정동 977",
-        id: "209092160",
-      },
-      {
-        place_url: "http://place.map.kakao.com/19336929",
-        place_name: "할리스 천안두정점",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 오성6길 52",
-        category_name: "음식점 > 카페 > 커피전문점 > 할리스",
-        distance: "469",
-        phone: "041-574-0013",
-        category_group_code: "CE7",
-        x: "127.1331423030561",
-        y: "36.83164091929133",
-        address_name: "충남 천안시 서북구 두정동 779",
-        id: "19336929",
-      },
-      {
-        place_url: "http://place.map.kakao.com/1321417319",
-        place_name: "읍천리382 천안두정점",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 오성8길 39",
-        category_name: "음식점 > 카페",
-        distance: "312",
-        phone: "041-414-0382",
-        category_group_code: "CE7",
-        x: "127.132372156582",
-        y: "36.832923153661",
-        address_name: "충남 천안시 서북구 두정동 716",
-        id: "1321417319",
-      },
-      {
-        place_url: "http://place.map.kakao.com/18856046",
-        place_name: "탐앤탐스 천안에비뉴점",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 서부대로 739",
-        category_name: "음식점 > 카페 > 커피전문점 > 탐앤탐스",
-        distance: "336",
-        phone: "041-569-3110",
-        category_group_code: "CE7",
-        x: "127.13315842541924",
-        y: "36.833181794528194",
-        address_name: "충남 천안시 서북구 두정동 701",
-        id: "18856046",
-      },
-      {
-        place_url: "http://place.map.kakao.com/27373262",
-        place_name: "빽다방 천안두정중앙점",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 두정로 166",
-        category_name: "음식점 > 카페 > 커피전문점 > 빽다방",
-        distance: "471",
-        phone: "041-562-5552",
-        category_group_code: "CE7",
-        x: "127.1352486516287",
-        y: "36.83356601013033",
-        address_name: "충남 천안시 서북구 두정동 910",
-        id: "27373262",
-      },
-      {
-        place_url: "http://place.map.kakao.com/547608158",
-        place_name: "이디야커피 천안두정점",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 부성6길 8",
-        category_name: "음식점 > 카페 > 커피전문점 > 이디야커피",
-        distance: "362",
-        phone: "041-569-9777",
-        category_group_code: "CE7",
-        x: "127.134435063096",
-        y: "36.8356385774568",
-        address_name: "충남 천안시 서북구 두정동 991",
-        id: "547608158",
-      },
-    ],
-    meta: {
-      total_count: 46,
-      is_end: false,
-      pageable_count: 45,
-      same_name: null,
-    },
+    r_name: "마운틴피시텔 레스토랑",
+    r_phone: "041-555-3612",
+    r_lon: "127.148424",
+    r_lat: "36.809057",
+    r_do: "충남",
+    r_si: "천안시",
+    r_gu: "동남구",
+    r_dong: "대흥동",
+    r_cat: "인도음식",
+    r_id: "13110298",
+    r_url: "http://place.map.kakao.com/13110298",
+    r_insert_time: null,
+    r_update_time: null,
+    c_name: "볼베어파크 천안점",
+    c_phone: "",
+    c_lon: "127.150594",
+    c_lat: "36.807872",
+    c_do: "충남",
+    c_si: "천안시",
+    c_gu: "동남구",
+    c_dong: "문화동",
+    c_cat: "키즈카페",
+    c_id: "836565346",
+    c_url: "http://place.map.kakao.com/836565346",
+    c_insert_time: null,
+    c_update_time: null,
+    grade: 1,
+    num: 13,
+  },
+  {
+    r_name: "석산장숯불갈비",
+    r_phone: "041-551-7230",
+    r_lon: "127.151797",
+    r_lat: "36.810311",
+    r_do: "충남",
+    r_si: "천안시",
+    r_gu: "동남구",
+    r_dong: "문화동",
+    r_cat: "갈비",
+    r_id: "10487761",
+    r_url: "http://place.map.kakao.com/10487761",
+    r_insert_time: null,
+    r_update_time: null,
+    c_name: "천안타운홀",
+    c_phone: "",
+    c_lon: "127.150602",
+    c_lat: "36.807849",
+    c_do: "충남",
+    c_si: "천안시",
+    c_gu: "동남구",
+    c_dong: "문화동",
+    c_cat: "카페",
+    c_id: "1829503594",
+    c_url: "http://place.map.kakao.com/1829503594",
+    c_insert_time: null,
+    c_update_time: null,
+    grade: 2,
+    num: 12,
   },
 ];
 
-const h1 = document.getElementsByTagName("h1");
-const cafeInfo = data[0]["documents"];
+const first = document.getElementsByClassName("first");
+const second = document.getElementsByClassName("second");
+const myFavList = document.getElementsByClassName("my-fav-list");
+const firstDescription = document.getElementsByClassName("first__description");
+const secondDescription = document.getElementsByClassName(
+  "second__description"
+);
+const items = document.getElementsByClassName("my-fav-list");
 
-for (let i = 0; i < cafeInfo.length; i++) {
-  h1[i].innerText = cafeInfo[i]["place_name"];
+for (let i = 0; i < data.length; i++) {
+  first[i].innerHTML = data[i].r_name;
+  second[i].innerHTML = data[i].c_name;
 
-  let locPosition = new kakao.maps.LatLng(cafeInfo[i]["y"], cafeInfo[i]["x"]),
-    message = cafeInfo[i]["place_name"];
+  // 식당 주소
+  let r_address =
+    data[i].r_do +
+    " " +
+    data[i].r_si +
+    " " +
+    data[i].r_gu +
+    " " +
+    data[i].r_dong;
 
-  console.log(locPosition, message);
-  displayMarker(locPosition, message);
-}
+  // 카페 주소
+  let c_address =
+    data[i].c_do +
+    " " +
+    data[i].c_si +
+    " " +
+    data[i].c_gu +
+    " " +
+    data[i].c_dong;
 
-// 반경 설정 여기선 문제가 많습니다..
-const radiusButton = document.querySelectorAll("button");
-var circle = new kakao.maps.Circle();
+  firstDescription[i].innerHTML = r_address;
+  secondDescription[i].innerHTML = c_address;
 
-radiusButton.forEach((event) => {
-  event.addEventListener("click", () => {
-    radiusButton.forEach((e) => {
-      e.classList.remove("active-color");
-      circle.setMap(null);
-    });
-    event.classList.add("active-color");
-    console.log(event.value);
-    radius = Number(event.value);
+  items[0].addEventListener("click", () => {
+    // 지도이동
+    let moveLatLon = new kakao.maps.LatLng(data[i].r_lat, data[i].r_lon);
+    map.panTo(moveLatLon);
 
-    let x = 0;
-    let y = 0;
+    var linePath = [
+      new kakao.maps.LatLng(data[i].r_lat, data[i].r_lon),
+      new kakao.maps.LatLng(data[i].c_lat, data[i].c_lon),
+    ];
 
-    for (let i = 0; i < cafeInfo.length; i++) {
-      h1[i].addEventListener("click", () => {
-        console.log("x: " + cafeInfo[i]["x"] + "\n" + "y: " + cafeInfo[i]["y"]);
-      });
-      x = cafeInfo[i]["x"];
-      y = cafeInfo[i]["y"];
-    }
-
-    // 지도에 표시할 원을 생성합니다
-    circle = new kakao.maps.Circle({
-      center: new kakao.maps.LatLng(y, x), // 원의 중심좌표 입니다
-      radius: radius, // 미터 단위의 원의 반지름입니다
-      strokeWeight: 2, // 선의 두께입니다
+    // 지도에 표시할 선을 생성합니다
+    var polyline = new kakao.maps.Polyline({
+      path: linePath, // 선을 구성하는 좌표배열 입니다
+      strokeWeight: 5, // 선의 두께 입니다
       strokeColor: "#FF5757", // 선의 색깔입니다
-      strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-      strokeStyle: "solid", // 선의 스타일 입니다
-      // fillColor: "#CFE7FF", // 채우기 색깔입니다
-      fillColor: "#FF5757", // 채우기 색깔입니다
-      fillOpacity: 0.7, // 채우기 불투명도 입니다
+      strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+      strokeStyle: "shortdot", // 선의 스타일입니다
     });
-
-    // 지도에 원을 표시합니다
-    circle.setMap(map);
+    polyline.setMap(map);
   });
-});
-// 반경 설정
+}

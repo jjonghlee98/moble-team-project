@@ -152,19 +152,19 @@ const data = [
 ];
 
 const h1 = document.getElementsByTagName("h1");
-const cafeRoadAddress = document.getElementsByClassName('road_address');
-const cafeAddress = document.getElementsByClassName('address');
-const phoneNum = document.getElementsByClassName('phone');
+const cafeRoadAddress = document.getElementsByClassName("road_address");
+const cafeAddress = document.getElementsByClassName("address");
+const phoneNum = document.getElementsByClassName("phone");
 
 const cafeInfo = data[0]["documents"];
 
 for (let i = 0; i < cafeInfo.length; i++) {
-  h1[i].innerText = cafeInfo[i]['place_name'];
-  cafeRoadAddress[i].innerText = cafeInfo[i]['road_address_name'];
-  cafeAddress[i].innerText = cafeInfo[i]['address_name'];
-  if (cafeInfo[i]['phone'] != '') {
-    console.log(cafeInfo[i]['phone']);
-    phoneNum[i].innerText = cafeInfo[i]['phone'];
+  h1[i].innerText = cafeInfo[i]["place_name"];
+  cafeRoadAddress[i].innerText = cafeInfo[i]["road_address_name"];
+  cafeAddress[i].innerText = cafeInfo[i]["address_name"];
+  if (cafeInfo[i]["phone"] != "") {
+    console.log(cafeInfo[i]["phone"]);
+    phoneNum[i].innerText = cafeInfo[i]["phone"];
   }
 
   let locPosition = new kakao.maps.LatLng(cafeInfo[i]["y"], cafeInfo[i]["x"]),
