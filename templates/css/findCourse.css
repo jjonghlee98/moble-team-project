@@ -150,7 +150,7 @@
   overflow-y: scroll;
   border-top: 2px solid #eee;
   border-bottom: 2px solid #eee;
-  padding: 0.5em 0; 
+  padding: 0.5em 0;
 }
 
 .right-box3::-webkit-scrollbar {
@@ -224,6 +224,49 @@
   margin: auto;
   width: 3.25em;
   height: 1.25em;
+}
+
+.custom_content {
+  height: 15em;
+  width: 15em;
+  border: 2px solid #ff5757;
+  border-radius: 7px;
+  padding: 0.25em 0.5em;
+  background: #eee;
+  transform: translateY(-75px);
+  text-align: center;
+}
+
+.custom_content .place_name {
+  margin: 0 auto;
+  padding: 0.25em 0.5em;
+  border: 2px solid #eee;
+  border-radius: 7px;
+  background: #ff5757;
+}
+
+.custom_content .place_name span {
+  font-size: 0.95em;
+  color: white;
+  font-weight: bold;
+}
+
+.address_name {
+  white-space: normal;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0 0.25em;
+  margin: 0 0.55em 0.25em;
+  border: 2px solid #eee;
+  border-radius: 7px;
+  background: #ff5757;
+  color: white;
+}
+
+.address_name span {
+  width: 100%;
+  font-size: 0.75em;
 }
 
 /* main content */

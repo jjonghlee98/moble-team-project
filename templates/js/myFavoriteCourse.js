@@ -97,14 +97,14 @@ for (let i = 0; i < data.length; i++) {
   firstDescription[i].innerHTML = r_address;
   secondDescription[i].innerHTML = c_address;
 
-  items[0].addEventListener("click", () => {
+  items[i].addEventListener("click", () => {
     // 지도이동
     let moveLatLon = new kakao.maps.LatLng(data[i].r_lat, data[i].r_lon);
     map.panTo(moveLatLon);
 
     var linePath = [
       new kakao.maps.LatLng(data[i].r_lat, data[i].r_lon),
-      new kakao.maps.LatLng(data[i].c_lat, data[i].c_lon),
+      new kakao.maps.LatLng(  data[i].c_lat, data[i].c_lon),
     ];
 
     // 지도에 표시할 선을 생성합니다
@@ -113,7 +113,7 @@ for (let i = 0; i < data.length; i++) {
       strokeWeight: 5, // 선의 두께 입니다
       strokeColor: "#FF5757", // 선의 색깔입니다
       strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-      strokeStyle: "shortdot", // 선의 스타일입니다
+      strokeStyle: "solid", // 선의 스타일입니다
     });
     polyline.setMap(map);
   });

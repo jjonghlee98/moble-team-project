@@ -67,13 +67,35 @@
   border-bottom: 2px solid #eee;
 }
 
+.ingi__choice {
+  display: flex;
+  margin: 0.75em 0;
+}
+
+.ingi-box {
+  flex: 1;
+  margin-right: 0.9em;
+  padding: 0.25em;
+  border: 2px solid #eee;
+  border-radius: 7px;
+  outline: none;
+  color: #ff5757;
+}
+
+.ingi-box:focus {
+  background: #eee;
+}
+
+.ingi-box:last-child {
+  margin-right: 0;
+}
+
 .ingi-list__container::-webkit-scrollbar {
   width: 0px;
 }
 
 .items {
   /* max-height: 33em; */
-  padding-top: 0.5em;
 }
 
 .radius {
@@ -106,60 +128,71 @@
 }
 
 .ingi-list {
-  /* height: 8.5em; */
+  display: flex;
+  justify-content: space-between;
   border: 2px solid #eee;
-  border-radius: 12px;
-  padding-top: 5em;
-  padding: 1em;
-  align-items: center;
   margin-bottom: 1em;
+  border-radius: 12px;
+  padding: 1em;
   cursor: pointer;
-  background: sandybrown;
-  /* background-image:url("../../images/dasom.jpg"); */
-  background-size: cover;
 }
 
 .ingi-list:hover {
-  /* background: #eee; */
+  background: lightgoldenrodyellow;
+}
 
+.ingi-list__image {
+  display: flex;
+  width: 4.5em;
+  height: 4.5em;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  background: #ff5757;
+}
+
+.ingi-list__image img {
+  margin: auto;
+  width: 3.25em;
+  height: 1.25em;
 }
 
 .ingi-list__description {
+  border: 1px solid #ff5757;
   border-radius: 12px;
-  background: beige;
-  padding: 1em;
-  opacity: 0;
-  transition: all ease .5s;
-}
-
-.ingi-list__description:hover {
-  opacity: 1;
+  width: 13em;
+  height: 15em;
+  padding: 0.25em;
 }
 
 .ingi-list__description h1 {
-  border: 1px solid #ff5757;
-  padding: 0.5em 0;
-  border-radius: 8px;
-  background: beige;
-  color: #ff5757;
-  margin-bottom: 5px;
-  transition: all ease .5s;
+  border: 1px solid #eee;
+  background: #ff5757;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.9em;
+  padding: 0.25em 0;
 }
 
-.items-img {
-  margin-bottom: 1em;
-  align-items: center;
+.first__item {
+  height: 12.7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
-.ingi-list__description span {
-  color: #ff5757;
+.first__description {
+  font-size: 0.85em;
 }
 
-.ingi-list__description .phone {
-  margin-top: 0.25em;
-  font-size: 1.05em;
-  font-weight: bold;
-  display: block;
+.second__item {
+  height: 12.7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.second__description {
+  font-size: 0.85em;
 }
 
 .custom_content {
