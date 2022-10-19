@@ -130,6 +130,7 @@ function displayPlaces(places) {
         "<span>" +
         roadAddress +
         "</span>" +
+        ", " +
         "<span>" +
         address +
         "</span>" +
@@ -139,6 +140,7 @@ function displayPlaces(places) {
       // 커스텀 오버레이가 표시될 위치입니다
       var customOverlay = new kakao.maps.CustomOverlay({
         map: map,
+        clickable: true,
         position: placePosition,
         content: content,
         yAnchor: 1,

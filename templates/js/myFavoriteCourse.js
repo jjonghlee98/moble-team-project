@@ -104,7 +104,7 @@ for (let i = 0; i < data.length; i++) {
 
     var linePath = [
       new kakao.maps.LatLng(data[i].r_lat, data[i].r_lon),
-      new kakao.maps.LatLng(  data[i].c_lat, data[i].c_lon),
+      new kakao.maps.LatLng(data[i].c_lat, data[i].c_lon),
     ];
 
     // 지도에 표시할 선을 생성합니다

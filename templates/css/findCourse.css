@@ -235,6 +235,7 @@
   background: #eee;
   transform: translateY(-75px);
   text-align: center;
+  cursor:default;
 }
 
 .custom_content .place_name {
@@ -256,17 +257,23 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  padding: 0 0.25em;
+  padding: 0.5em 0.25em;
   margin: 0 0.55em 0.25em;
   border: 2px solid #eee;
   border-radius: 7px;
   background: #ff5757;
   color: white;
+  /*opacity: 0;*/
 }
+
+/* 쓸모없는 기능 */
+/*.address_name:hover {*/
+/*  opacity: 99;*/
+/*}*/
 
 .address_name span {
   width: 100%;
-  font-size: 0.75em;
+  font-size: 0.65em;
 }
 
 /* main content */
