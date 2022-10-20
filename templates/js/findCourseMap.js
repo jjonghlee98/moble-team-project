@@ -68,6 +68,17 @@ function searchPlaces() {
 
   // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
   ps.keywordSearch(keyword, placesSearchCB);
+
+  // let resButton = document.getElementById("res-button");
+  // let cafeButton = document.getElementById("cafe-button");
+
+  // resButton.addEventListener("click", () => {
+  //   ps.keywordSearch(keyword + "주변 맛집", placesSearchCB);
+  // });
+
+  // cafeButton.addEventListener("click", () => {
+  //   ps.keywordSearch(keyword + "주변 카페", placesSearchCB);
+  // });
 }
 
 // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -78,13 +89,127 @@ function placesSearchCB(data, status, pagination) {
     displayPlaces(data);
 
     // 페이지 번호를 표출합니다
-    displayPagination(pagination);
+    // 잠깐 숨어있어 형이 너 때문에 눈물이 난다.
+    // displayPagination(pagination);
   } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
     alert("검색 결과가 존재하지 않습니다.");
     return;
   } else if (status === kakao.maps.services.Status.ERROR) {
     alert("검색 결과 중 오류가 발생했습니다.");
     return;
+  }
+
+  // 아이템을 클릭했을 때 y, x 좌표가 뜬다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  let items = document.getElementsByClassName("item");
+  for (let i = 0; i < data.length; i++) {
+    items[i].addEventListener("click", () => {
+      console.log(data[i].place_name);
+      console.log(data[i].road_address_name);
+      console.log(data[i].address_name);
+      console.log(data[i].y + ", " + data[i].x);
+
+      // let choiceEl = document.createElement("li"),
+      //   itemStr =
+      //     '<div class="info">' +
+      //     "   <h5 id='title'>" +
+      //     data[i].place_name +
+      //     "</h5>";
+      //
+      // if (data[i].road_address_name) {
+      //   itemStr +=
+      //     "    <span class='road_address'>" +
+      //     data[i].road_address_name +
+      //     "</span>" +
+      //     " / " +
+      //     '   <span class="jibun gray">' +
+      //     data[i].address_name +
+      //     "</span>";
+      // } else {
+      //   itemStr += "    <span>" + data[i].address_name + "</span>";
+      // }
+      //
+      // itemStr += '  <span class="tel">' + data[i].phone + "</span>" + "</div>";
+      //
+      // choiceEl.innerHTML = itemStr;
+      // choiceEl.className = "item";
+      //
+      // const rightBox3 = document.getElementsByClassName("right-box3");
+
+      // 마커
+      var listEl = document.getElementById("placesList"),
+        menuEl = document.getElementsByClassName("find-course-list__container"),
+        fragment = document.createDocumentFragment(),
+        bounds = new kakao.maps.LatLngBounds(),
+        listStr = "";
+
+      // 검색 결과 목록에 추가된 항목들을 제거합니다
+      removeAllChildNods(listEl);
+      // 지도에 표시되고 있는 마커를 제거합니다
+      removeMarker();
+
+      // 마커를 생성하고 지도에 표시합니다
+      var placePosition = new kakao.maps.LatLng(data[i].y, data[i].x),
+        marker = addMarker(placePosition, i),
+        itemEl = getListItem(i, data[i]); // 검색 결과 항목 Element를 생성합니다
+
+      // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+      // LatLngBounds 객체에 좌표를 추가합니다
+
+      bounds.extend(placePosition);
+      map.panTo(placePosition);
+
+      let resButton = document.getElementsByClassName("res-button");
+      let cafeButton = document.getElementsByClassName("cafe-button");
+
+      // 레스토랑 검색
+      for (let j = 0; j < resButton.length; j++) {
+        resButton[j].addEventListener("click", () => {
+          console.log(data[i].y + ", " + data[i].x);
+          var places = new kakao.maps.services.Places();
+
+          var callback = function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              console.log(result);
+
+              if (status === kakao.maps.services.Status.OK) {
+                // 정상적으로 검색이 완료됐으면
+                // 검색 목록과 마커를 표출합니다
+                displayPlaces(result);
+              }
+            }
+          };
+          places.categorySearch("FD6", callback, {
+            // Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+            location: new kakao.maps.LatLng(data[i].y, data[i].x),
+            radius: resButton[j].value,
+          });
+        });
+      }
+      // 카페 검색
+      for (let k = 0; k < cafeButton.length; k++) {
+        cafeButton[k].addEventListener("click", () => {
+          console.log(data[i].y + ", " + data[i].x);
+          var places = new kakao.maps.services.Places();
+
+          var callback = function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              console.log(result);
+
+              if (status === kakao.maps.services.Status.OK) {
+                // 정상적으로 검색이 완료됐으면
+                // 검색 목록과 마커를 표출합니다
+                displayPlaces(result);
+              }
+            }
+          };
+          places.categorySearch("CE7", callback, {
+            // Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+            location: new kakao.maps.LatLng(data[i].y, data[i].x),
+            radius: cafeButton[k].value,
+          });
+        });
+      }
+    });
   }
 }
 
@@ -161,11 +286,6 @@ function displayPlaces(places) {
         // 지도 중심을 이동 시킵니다
         map.panTo(placePosition);
       };
-
-      // itemEl.onmouseover = function () {
-      //   // infowindow.close();
-      //   customOverlay.setMap(null);
-      // };
     })(marker, places[i].place_name);
 
     fragment.appendChild(itemEl);
@@ -187,7 +307,7 @@ function getListItem(index, places) {
       (index + 1) +
       '"></span>' +
       '<div class="info">' +
-      "   <h5>" +
+      "   <h5 id='title'>" +
       places.place_name +
       "</h5>";
 
@@ -276,7 +396,7 @@ function displayPagination(pagination) {
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
 function displayInfowindow(marker, title) {
-  var content = '<div style="padding:5px;z-index:1;">' + title + "</div>";
+  var content = '<div style="padding:5px; z-index:1;">' + title + "</div>";
 
   infowindow.setContent(content);
   infowindow.open(map, marker);
@@ -290,11 +410,3 @@ function removeAllChildNods(el) {
     el.removeChild(el.lastChild);
   }
 }
-
-// const items = document.getElementsByClassName("item");
-//
-// for (let i = 0; i < items.length; i++) {
-//   items[i].addEventListener("click", () => {
-//     console.log(items[i]);
-//   });
-// }

@@ -68,7 +68,11 @@
               <span class="material-symbols-outlined" id="search_icon">
                 search
               </span>
-              <input type="text" id="find-course__searchbar" />
+              <input
+                type="text"
+                id="find-course__searchbar"
+                placeholder="주변 맛집과 카페를 검색할 장소를 입력하세요."
+              />
               <span
                 class="material-symbols-outlined"
                 id="location_button"
@@ -81,11 +85,29 @@
 
           <!-- contents ( 10개 ) -->
           <section>
-            <div class="radius">
-              <button class="radius__button" value="300">300m</button>
-              <button class="radius__button" value="600">600m</button>
-              <button class="radius__button" value="900">900m</button>
-              <button class="radius__button" value="1200">1200m</button>
+            <div class="res-container">
+              <button type="button">식당</button>
+              <button type="button" class="res-button" value="300">300m</button>
+              <button type="button" class="res-button" value="600">600m</button>
+              <button type="button" class="res-button" value="900">900m</button>
+              <button type="button" class="res-button" value="1200">
+                1200m
+              </button>
+            </div>
+            <div class="cafe-container">
+              <button type="button">카페</button>
+              <button type="button" class="cafe-button" value="300">
+                300m
+              </button>
+              <button type="button" class="cafe-button" value="600">
+                600m
+              </button>
+              <button type="button" class="cafe-button" value="900">
+                900m
+              </button>
+              <button type="button" class="cafe-button" value="1200">
+                1200m
+              </button>
             </div>
             <div class="right-box3">
               <ul id="placesList"></ul>

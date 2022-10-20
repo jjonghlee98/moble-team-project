@@ -1,36 +1,3 @@
-// test
-const data = [
-  {
-    documents: [
-      {
-        place_url: "http://place.map.kakao.com/287484837",
-        place_name: "그레이츄",
-        category_group_name: "카페",
-        road_address_name: "충남 천안시 서북구 오성7길 42",
-        category_name: "음식점 > 카페 > 테마카페 > 디저트카페",
-        distance: "386",
-        phone: "",
-        category_group_code: "CE7",
-        x: "127.13256939448158",
-        y: "36.832239894673286",
-        address_name: "충남 천안시 서북구 두정동 749",
-        id: "287484837",
-      },
-    ],
-  },
-];
-
-const h1 = document.querySelector("h1");
-
-// h1.innerText = data[0]["documents"][0]["place_name"];
-
-const cafeInfo = data[0]["documents"];
-
-let locPosition = new kakao.maps.LatLng(cafeInfo[0]["y"], cafeInfo[0]["x"]),
-  message = cafeInfo[0]["place_name"];
-
-// displayMarker(locPosition, message);
-
 // 반경 설정
 const radiusButton = document.querySelectorAll("button");
 // var circle = new kakao.maps.Circle();

@@ -81,7 +81,7 @@
 .material-symbols-outlined:nth-of-type(2) {
   position: absolute;
   padding: 15px;
-  height: 2.2 5em;
+  height: 2.25em;
   top: 0px;
   right: 0px;
   border-right: 0;
@@ -103,6 +103,82 @@
   border-radius: 5px;
   margin-bottom: 0.5em;
 }
+
+/* 레스토랑 버튼 */
+.res-container {
+  display: flex;
+  margin-bottom: 0.2em;
+}
+
+.res-container button {
+  flex: 1;
+  padding: 0.5em 0;
+  outline: none;
+  font-weight: bold;
+}
+
+.res-container button:nth-of-type(1) {
+  border: 1px solid white;
+  border-radius: 12px 0 0 12px;
+  background: #ff5757;
+  color: white;
+}
+
+.res-button {
+  cursor: pointer;
+  border: 1px solid white;
+  border-left: 2px solid #eee;
+}
+
+.res-button:nth-last-child(1) {
+  border: 1px solid white;
+  border-left: 2px solid #eee;
+  border-radius: 0 12px 12px 0;
+}
+
+.res-button:hover {
+  background: #ff5757;
+  color: white;
+}
+/* 레스토랑 버튼 */
+
+/* 카페 버튼 */
+.cafe-container {
+  display: flex;
+  margin-bottom: 0.2em;
+}
+
+.cafe-container button {
+  flex: 1;
+  padding: 0.5em 0;
+  outline: none;
+  font-weight: bold;
+}
+
+.cafe-container button:nth-of-type(1) {
+  border: 1px solid white;
+  border-radius: 12px 0 0 12px;
+  background: #ff5757;
+  color: white;
+}
+
+.cafe-button {
+  cursor: pointer;
+  border: 1px solid white;
+  border-left: 2px solid #eee;
+}
+
+.cafe-button:nth-last-child(1) {
+  border: 1px solid white;
+  border-left: 2px solid #eee;
+  border-radius: 0 12px 12px 0;
+}
+
+.cafe-button:hover {
+  background: #ff5757;
+  color: white;
+}
+/* 카페 버튼 */
 
 .items {
   max-height: 31em;
@@ -146,7 +222,8 @@
 }
 
 .right-box3 {
-  height: 29.15em;
+  margin-top: 0.5em;
+  height: 26em;
   overflow-y: scroll;
   border-top: 2px solid #eee;
   border-bottom: 2px solid #eee;
@@ -227,7 +304,7 @@
 }
 
 .custom_content {
-  height: 15em;
+  height: 10em;
   width: 15em;
   border: 2px solid #ff5757;
   border-radius: 7px;
