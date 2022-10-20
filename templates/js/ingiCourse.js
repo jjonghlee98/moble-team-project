@@ -290,41 +290,53 @@ const phoneNum = document.getElementsByClassName("phone");
 const dateInfo = data[0]["documents"];
 
 for (let i = 0; i < dateInfo.length; i++) {
-  // 동적으로 추가해보려고 했어 더 알아봐야 해
-  let choiceEl = document.createElement("li"),
+  // 끼야아아아악 힘들어 죽는줄~~~~~~~~~~~~~~~
+  let choiceEl = document.createElement("div"),
     itemStr =
       "<div>" +
       "<div class='ingi-list__description'>" +
       "<h5 class='first'>" +
       dateInfo[i].r_name +
       "</h5>" +
-      "<div class='first__item'>";
-
-  if (dateInfo[i].r_si) {
-    itemStr +=
-      "    <span class='first__description'>" +
+      "<div class='first__item'>" +
+      "<span class='first__description'>" +
+      dateInfo[i].r_do +
       dateInfo[i].r_si +
-      "</span>" +
-      " / " +
-      '   <span class="jibun gray">' +
       dateInfo[i].r_gu +
-      "</span>";
-  } else {
-    itemStr += "    <span>" + dateInfo[i].r_dong + "</span>";
-  }
-
-  itemStr +=
-    '  <span class="tel">' +
-    dateInfo[i].r_phone +
-    "</span>" +
-    "</div>" +
-    "</div>" +
-    "</div>";
+      dateInfo[i].r_dong +
+      "</span>" +
+      "<span class='tel'>" +
+      dateInfo[i].r_phone +
+      "</span>" +
+      "</div>" +
+      "</div>" +
+      "</div>" +
+      "<div>" +
+      "<div class='ingi-list__description'>" +
+      "<h5 class='second'>" +
+      dateInfo[i].c_name +
+      "</h5>" +
+      "<div class='second__item'>" +
+      "<span class='second__description'>" +
+      dateInfo[i].c_do +
+      " " +
+      dateInfo[i].c_si +
+      " " +
+      dateInfo[i].c_gu +
+      " " +
+      dateInfo[i].c_dong +
+      "</span>" +
+      "<span class='tel'>" +
+      dateInfo[i].r_phone +
+      "</span>" +
+      "</div>" +
+      "</div>" +
+      "</div>";
 
   choiceEl.innerHTML = itemStr;
-  choiceEl.className = "item";
+  choiceEl.className = "ingi-list";
 
-  const area = document.getElementById("ingi-list");
+  const area = document.getElementById("items");
   area.appendChild(choiceEl);
   // 동적으로 추가해보려고 했어 더 알아봐야 해
 
@@ -336,11 +348,15 @@ for (let i = 0; i < dateInfo.length; i++) {
   //   phoneNum[i].innerText = cafeInfo[i]["phone"];
   // }
 
-  let locPosition = new kakao.maps.LatLng(dateInfo[i]["r_lat"], dateInfo[i]["r_lon"]),
-    message = dateInfo[i]["place_name"];
-
-  console.log(locPosition, message);
-  displayMarker(locPosition, message);
+  // 마커를 바로 띄울필요 없이 클릭했을 때 띄우는 게 좋을듯
+  // let locPosition = new kakao.maps.LatLng(
+  //     dateInfo[i]["r_lat"],
+  //     dateInfo[i]["r_lon"]
+  //   ),
+  //   message = dateInfo[i]["place_name"];
+  //
+  // console.log(locPosition, message);
+  // displayMarker(locPosition, message);
 }
 
 // 반경 설정 여기선 문제가 많습니다..
