@@ -295,6 +295,7 @@ let polylines = [];
 // 지도에 표시할 선을 생성합니다
 function addPolyline(firstPosition, secondPosition, idx) {
   linePath = [firstPosition, secondPosition];
+
   let polyline = new kakao.maps.Polyline({
     path: linePath, // 선을 구성하는 좌표배열 입니다
     strokeWeight: 5, // 선의 두께 입니다
@@ -319,7 +320,7 @@ function removePolyline() {
 function addMarker(position, idx, title) {
   var imageSrc = "../images/marker_img.png",
     imageSize = new kakao.maps.Size(52, 57),
-    imageOption = { offset: new kakao.maps.Point(27, 69) };
+    imageOption = { offset: new kakao.maps.Point(25, 55) };
 
   var markerImage = new kakao.maps.MarkerImage(
     imageSrc,
@@ -429,6 +430,8 @@ for (let i = 0; i < dateInfo.length; i++) {
     // displayMarker(secondPosition, secondMessage);
     // 카페 마커 끝
     console.log("first: " + firstPosition + ", second: " + secondPosition);
+    
+    // 식당, 카페 폴리라인 연결
     addPolyline(firstPosition, secondPosition, i);
   });
 
