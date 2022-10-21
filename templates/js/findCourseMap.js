@@ -24,15 +24,92 @@ function locationLoadSuccess(pos) {
   map.panTo(currentPos);
 
   // 마커 생성
-  var marker = new kakao.maps.Marker({
-    position: currentPos,
-  });
+  // var imageSrc = "../images/marker_img.png",
+  //   imageSize = new kakao.maps.Size(52, 57),
+  //   imageOption = { offset: new kakao.maps.Point(27, 69) };
+
+  // var markerImage = new kakao.maps.MarkerImage(
+  //   imageSrc,
+  //   imageSize,
+  //   imageOption
+  // );
+  // var marker = new kakao.maps.Marker({
+  //   position: currentPos, // 마커의 위치: 현재위치로 지정
+  //   image: markerImage,
+  // });
+
+  // 마커를 생성하고 지도에 표시합니다
+  var placePosition = new kakao.maps.LatLng(
+      pos.coords.latitude,
+      pos.coords.longitude
+    ),
+    marker = addMarker(placePosition, null); // 검색 결과 항목 Element를 생성합니다
 
   // 기존에 마커가 있다면 제거
   marker.setMap(null);
 
-  // 위치가 다르게 떠서 일단 주석처리함
+  // 이상하게 뜨는 건 여전함
   // marker.setMap(map);
+
+  // 내위치 기준으로 선택했을 경우의 레스토랑, 카페 검색 이벤트 시작
+  let resButton = document.getElementsByClassName("res-button");
+  let cafeButton = document.getElementsByClassName("cafe-button");
+
+  // 레스토랑 검색
+  for (let i = 0; i < resButton.length; i++) {
+    resButton[i].addEventListener("click", () => {
+      marker.setMap(null);
+      var places = new kakao.maps.services.Places();
+
+      var callback = function (result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+          console.log(result);
+
+          if (status === kakao.maps.services.Status.OK) {
+            // 정상적으로 검색이 완료됐으면
+            // 검색 목록과 마커를 표출합니다
+            displayPlaces(result);
+          }
+        }
+      };
+      places.categorySearch("FD6", callback, {
+        // Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+        location: new kakao.maps.LatLng(
+          pos.coords.latitude,
+          pos.coords.longitude
+        ),
+        radius: resButton[i].value,
+      });
+    });
+  }
+  // 카페 검색
+  for (let i = 0; i < cafeButton.length; i++) {
+    cafeButton[i].addEventListener("click", () => {
+      marker.setMap(null);
+      var places = new kakao.maps.services.Places();
+
+      var callback = function (result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+          console.log(result);
+
+          if (status === kakao.maps.services.Status.OK) {
+            // 정상적으로 검색이 완료됐으면
+            // 검색 목록과 마커를 표출합니다
+            displayPlaces(result);
+          }
+        }
+      };
+      places.categorySearch("CE7", callback, {
+        // Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+        location: new kakao.maps.LatLng(
+          pos.coords.latitude,
+          pos.coords.longitude
+        ),
+        radius: cafeButton[i].value,
+      });
+    });
+  }
+  // 내위치 기준으로 선택했을 경우의 레스토랑, 카페 검색 이벤트 끝
 }
 
 function locationLoadError(pos) {
@@ -41,6 +118,9 @@ function locationLoadError(pos) {
 
 // 위치 가져오기 버튼 클릭시
 function getCurrentPosBtn() {
+  // 지도에 표시되고 있는 마커를 제거합니다
+  removeMarker();
+
   navigator.geolocation.getCurrentPosition(
     locationLoadSuccess,
     locationLoadError
@@ -68,17 +148,6 @@ function searchPlaces() {
 
   // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
   ps.keywordSearch(keyword, placesSearchCB);
-
-  // let resButton = document.getElementById("res-button");
-  // let cafeButton = document.getElementById("cafe-button");
-
-  // resButton.addEventListener("click", () => {
-  //   ps.keywordSearch(keyword + "주변 맛집", placesSearchCB);
-  // });
-
-  // cafeButton.addEventListener("click", () => {
-  //   ps.keywordSearch(keyword + "주변 카페", placesSearchCB);
-  // });
 }
 
 // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -108,33 +177,6 @@ function placesSearchCB(data, status, pagination) {
       console.log(data[i].address_name);
       console.log(data[i].y + ", " + data[i].x);
 
-      // let choiceEl = document.createElement("li"),
-      //   itemStr =
-      //     '<div class="info">' +
-      //     "   <h5 id='title'>" +
-      //     data[i].place_name +
-      //     "</h5>";
-      //
-      // if (data[i].road_address_name) {
-      //   itemStr +=
-      //     "    <span class='road_address'>" +
-      //     data[i].road_address_name +
-      //     "</span>" +
-      //     " / " +
-      //     '   <span class="jibun gray">' +
-      //     data[i].address_name +
-      //     "</span>";
-      // } else {
-      //   itemStr += "    <span>" + data[i].address_name + "</span>";
-      // }
-      //
-      // itemStr += '  <span class="tel">' + data[i].phone + "</span>" + "</div>";
-      //
-      // choiceEl.innerHTML = itemStr;
-      // choiceEl.className = "item";
-      //
-      // const rightBox3 = document.getElementsByClassName("right-box3");
-
       // 마커
       var listEl = document.getElementById("placesList"),
         menuEl = document.getElementsByClassName("find-course-list__container"),
@@ -154,13 +196,11 @@ function placesSearchCB(data, status, pagination) {
 
       // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
       // LatLngBounds 객체에 좌표를 추가합니다
-
       bounds.extend(placePosition);
       map.panTo(placePosition);
 
       let resButton = document.getElementsByClassName("res-button");
       let cafeButton = document.getElementsByClassName("cafe-button");
-
       // 레스토랑 검색
       for (let j = 0; j < resButton.length; j++) {
         resButton[j].addEventListener("click", () => {
