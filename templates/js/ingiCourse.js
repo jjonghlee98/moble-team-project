@@ -286,8 +286,41 @@ const h1 = document.getElementsByTagName("h1");
 const cafeRoadAddress = document.getElementsByClassName("road_address");
 const cafeAddress = document.getElementsByClassName("address");
 const phoneNum = document.getElementsByClassName("phone");
-
 const dateInfo = data[0]["documents"];
+
+//마커를 담을 배열
+var markers = [];
+
+// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+function addMarker(position, idx, title) {
+  var imageSrc = "../images/marker_img.png",
+    imageSize = new kakao.maps.Size(52, 57),
+    imageOption = { offset: new kakao.maps.Point(27, 69) };
+
+  var markerImage = new kakao.maps.MarkerImage(
+    imageSrc,
+    imageSize,
+    imageOption
+  );
+  marker = new kakao.maps.Marker({
+    position: position, // 마커의 위치
+    image: markerImage,
+  });
+
+  marker.setMap(map); // 지도 위에 마커를 표출합니다
+  markers.push(marker); // 배열에 생성된 마커를 추가합니다
+
+  map.panTo(position);
+  return marker;
+}
+
+// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+function removeMarker() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
+}
 
 for (let i = 0; i < dateInfo.length; i++) {
   // 끼야아아아악 힘들어 죽는줄~~~~~~~~~~~~~~~
@@ -343,6 +376,7 @@ for (let i = 0; i < dateInfo.length; i++) {
   // 아이템 클릭 이벤트 시작
   const ingiList = document.getElementsByClassName("ingi-list");
   ingiList[i].addEventListener("click", () => {
+    removeMarker();
     // 레스트랑 마커 시작
     console.log("레스토랑: " + dateInfo[i].r_lat + ", " + dateInfo[i].r_lon);
     let firstPosition = new kakao.maps.LatLng(
@@ -352,10 +386,12 @@ for (let i = 0; i < dateInfo.length; i++) {
       firstMessage = dateInfo[i]["r_name"];
 
     console.log(firstPosition, firstMessage);
-    displayMarker(firstPosition, firstMessage);
+    addMarker(firstPosition, i);
+    // displayMarker(firstPosition, firstMessage);
     // 레스트랑 마커 끝
 
     // 카페 마커 시작
+    // removeMarker();
     console.log("카페: " + dateInfo[i].c_lat + ", " + dateInfo[i].c_lon);
     let secondPosition = new kakao.maps.LatLng(
         dateInfo[i]["c_lat"],
@@ -364,7 +400,8 @@ for (let i = 0; i < dateInfo.length; i++) {
       secondMessage = dateInfo[i]["c_name"];
 
     console.log(secondPosition, secondMessage);
-    displayMarker(secondPosition, secondMessage);
+    addMarker(secondPosition, i);
+    // displayMarker(secondPosition, secondMessage);
     // 카페 마커 끝
   });
   // 아이템 클릭 이벤트 끝
