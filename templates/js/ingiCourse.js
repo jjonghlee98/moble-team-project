@@ -338,67 +338,34 @@ for (let i = 0; i < dateInfo.length; i++) {
 
   const area = document.getElementById("items");
   area.appendChild(choiceEl);
-  // 동적으로 추가해보려고 했어 더 알아봐야 해
+  // 아이템 띄우기 끝
 
-  // h1[i].innerText = cafeInfo[i]["place_name"];
-  // cafeRoadAddress[i].innerText = cafeInfo[i]["road_address_name"];
-  // cafeAddress[i].innerText = cafeInfo[i]["address_name"];
-  // if (cafeInfo[i]["phone"] != "") {
-  //   console.log(cafeInfo[i]["phone"]);
-  //   phoneNum[i].innerText = cafeInfo[i]["phone"];
-  // }
+  // 아이템 클릭 이벤트 시작
+  const ingiList = document.getElementsByClassName("ingi-list");
+  ingiList[i].addEventListener("click", () => {
+    // 레스트랑 마커 시작
+    console.log("레스토랑: " + dateInfo[i].r_lat + ", " + dateInfo[i].r_lon);
+    let firstPosition = new kakao.maps.LatLng(
+        dateInfo[i]["r_lat"],
+        dateInfo[i]["r_lon"]
+      ),
+      firstMessage = dateInfo[i]["r_name"];
 
-  // 마커를 바로 띄울필요 없이 클릭했을 때 띄우는 게 좋을듯
-  // let locPosition = new kakao.maps.LatLng(
-  //     dateInfo[i]["r_lat"],
-  //     dateInfo[i]["r_lon"]
-  //   ),
-  //   message = dateInfo[i]["place_name"];
-  //
-  // console.log(locPosition, message);
-  // displayMarker(locPosition, message);
+    console.log(firstPosition, firstMessage);
+    displayMarker(firstPosition, firstMessage);
+    // 레스트랑 마커 끝
+
+    // 카페 마커 시작
+    console.log("카페: " + dateInfo[i].c_lat + ", " + dateInfo[i].c_lon);
+    let secondPosition = new kakao.maps.LatLng(
+        dateInfo[i]["c_lat"],
+        dateInfo[i]["c_lon"]
+      ),
+      secondMessage = dateInfo[i]["c_name"];
+
+    console.log(secondPosition, secondMessage);
+    displayMarker(secondPosition, secondMessage);
+    // 카페 마커 끝
+  });
+  // 아이템 클릭 이벤트 끝
 }
-
-// 반경 설정 여기선 문제가 많습니다..
-// const radiusButton = document.querySelectorAll("button");
-// var circle = new kakao.maps.Circle();
-
-// radiusButton.forEach((event) => {
-//   event.addEventListener("click", () => {
-//     radiusButton.forEach((e) => {
-//       e.classList.remove("active-color");
-//       circle.setMap(null);
-//     });
-//     event.classList.add("active-color");
-//     console.log(event.value);
-//     radius = Number(event.value);
-
-//     let x = 0;
-//     let y = 0;
-
-//     for (let i = 0; i < cafeInfo.length; i++) {
-//       h1[i].addEventListener("click", () => {
-//         console.log("x: " + cafeInfo[i]["x"] + "\n" + "y: " + cafeInfo[i]["y"]);
-//       });
-//       x = cafeInfo[i]["x"];
-//       y = cafeInfo[i]["y"];
-//     }
-
-//     // 지도에 표시할 원을 생성합니다
-//     circle = new kakao.maps.Circle({
-//       center: new kakao.maps.LatLng(y, x), // 원의 중심좌표 입니다
-//       radius: radius, // 미터 단위의 원의 반지름입니다
-//       strokeWeight: 2, // 선의 두께입니다
-//       strokeColor: "#FF5757", // 선의 색깔입니다
-//       strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-//       strokeStyle: "solid", // 선의 스타일 입니다
-//       // fillColor: "#CFE7FF", // 채우기 색깔입니다
-//       fillColor: "#FF5757", // 채우기 색깔입니다
-//       fillOpacity: 0.7, // 채우기 불투명도 입니다
-//     });
-
-//     // 지도에 원을 표시합니다
-//     circle.setMap(map);
-//   });
-// });
-// 반경 설정
