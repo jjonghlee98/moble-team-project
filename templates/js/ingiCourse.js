@@ -348,6 +348,24 @@ function removeMarker() {
 
 for (let i = 0; i < dateInfo.length; i++) {
   // 끼야아아아악 힘들어 죽는줄~~~~~~~~~~~~~~~
+  let r_address =
+    dateInfo[i].r_do +
+    " " +
+    dateInfo[i].r_si +
+    " " +
+    dateInfo[i].r_gu +
+    " " +
+    dateInfo[i].r_dong;
+
+  let c_address =
+    dateInfo[i].c_do +
+    " " +
+    dateInfo[i].c_si +
+    " " +
+    dateInfo[i].c_gu +
+    " " +
+    dateInfo[i].c_dong;
+
   let choiceEl = document.createElement("div"),
     itemStr =
       "<div>" +
@@ -357,38 +375,31 @@ for (let i = 0; i < dateInfo.length; i++) {
       "</h5>" +
       "<div class='first__item'>" +
       "<span class='first__description'>" +
-      dateInfo[i].r_do +
-      dateInfo[i].r_si +
-      dateInfo[i].r_gu +
-      dateInfo[i].r_dong +
-      "</span>" +
-      "<span class='tel'>" +
-      dateInfo[i].r_phone +
-      "</span>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "<div>" +
-      "<div class='ingi-list__description'>" +
-      "<h5 class='second'>" +
-      dateInfo[i].c_name +
-      "</h5>" +
-      "<div class='second__item'>" +
-      "<span class='second__description'>" +
-      dateInfo[i].c_do +
-      " " +
-      dateInfo[i].c_si +
-      " " +
-      dateInfo[i].c_gu +
-      " " +
-      dateInfo[i].c_dong +
-      "</span>" +
-      "<span class='tel'>" +
-      dateInfo[i].r_phone +
-      "</span>" +
-      "</div>" +
-      "</div>" +
-      "</div>";
+      r_address +
+      "</span>";
+
+  if (dateInfo[i].r_phone) {
+    itemStr += "<span class='tel'>" + dateInfo[i].r_phone + "</span>";
+  }
+  itemStr +=
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "<div>" +
+    "<div class='ingi-list__description'>" +
+    "<h5 class='second'>" +
+    dateInfo[i].c_name +
+    "</h5>" +
+    "<div class='second__item'>" +
+    "<span class='second__description'>" +
+    c_address +
+    "</span>";
+
+  if (dateInfo[i].c_phone) {
+    "<span class='tel'>" + dateInfo[i].c_phone + "</span>";
+  }
+
+  itemStr += "</div>" + "</div>" + "</div>";
 
   choiceEl.innerHTML = itemStr;
   choiceEl.className = "ingi-list";

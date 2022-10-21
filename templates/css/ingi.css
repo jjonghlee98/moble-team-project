@@ -59,7 +59,7 @@
 
 .ingi-list__container {
   flex: 1;
-  /* width: 25em; */
+  padding-top: 0.75em;
   padding-right: 1em;
   text-align: center;
   overflow-y: scroll;
@@ -69,7 +69,17 @@
 
 .ingi__choice {
   display: flex;
-  margin: 0.75em 0;
+  margin: 0 0.5em 0.75em 0;
+}
+
+#ingi-search {
+  padding: 0.25em 1.5em;
+  border: none;
+  border-radius: 7px;
+  outline: none;
+  background: #FF5757;
+  color: white;
+  cursor: pointer;
 }
 
 .ingi-box {
@@ -95,7 +105,7 @@
 }
 
 #items {
-  /* max-height: 33em; */
+  max-height: 31.25em;
 }
 
 .radius {
@@ -135,6 +145,14 @@
   border-radius: 12px;
   padding: 1em;
   cursor: pointer;
+}
+
+.ingi-list > div {
+  margin-right: 0.5em;
+}
+
+.ingi-list > div:nth-of-type(2) {
+  margin-right: 0;
 }
 
 .ingi-list:hover {
@@ -182,6 +200,19 @@
 
 .first__description {
   font-size: 0.85em;
+  border: none;
+  border-radius: 8px;
+  background: #ff5757;
+  padding: 0.25em;
+  color: white;
+}
+
+.first {
+  border: 1px solid #eee;
+  background: #ff5757;
+  color: white;
+  border-radius: 12px;
+  padding: 0.25em 0;
 }
 
 .second__item {
@@ -193,6 +224,29 @@
 
 .second__description {
   font-size: 0.85em;
+  border: none;
+  border-radius: 8px;
+  background: #ff5757;
+  padding: 0.25em;
+  color: white;
+}
+
+.second {
+  border: 1px solid #eee;
+  background: #ff5757;
+  color: white;
+  border-radius: 12px;
+  padding: 0.25em 0;
+}
+
+.tel {
+  margin-top: 0.25em;
+  font-size: 0.85em;
+  padding: 0.25em;
+  border: none;
+  border-radius: 8px;
+  background: #ff5757;
+  color: white;
 }
 
 .custom_content {
