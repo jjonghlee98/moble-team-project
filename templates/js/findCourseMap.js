@@ -2,6 +2,7 @@
 
 //마커를 담을 배열
 var markers = [];
+let customoverlays = [];
 
 var mapContainer = document.getElementById("map"), // 지도를 표시할 div
   mapOption = {

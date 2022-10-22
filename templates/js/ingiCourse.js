@@ -305,7 +305,7 @@ function addPolyline(firstPosition, secondPosition, idx) {
   });
   polyline.setMap(map);
   polylines.push(polyline);
-
+  
   return polyline;
 }
 
