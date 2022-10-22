@@ -283,6 +283,9 @@ function displayPlaces(places) {
     // mouseout 했을 때는 인포윈도우를 닫습니다
     (function (marker, title) {
       let message = title;
+      let first = places[i].y;
+      let second = places[i].x;
+      let markerPosition = new kakao.maps.LatLng(first, second);
       let roadAddress = places[i].road_address_name;
       let address = places[i].address_name;
       var content =
@@ -303,29 +306,43 @@ function displayPlaces(places) {
         "</div>" +
         "</div>";
 
-      // 커스텀 오버레이가 표시될 위치입니다
-      var customOverlay = new kakao.maps.CustomOverlay({
-        map: map,
-        clickable: true,
-        position: placePosition,
-        content: content,
-        yAnchor: 1,
-      });
-      customOverlay.setMap(null);
+      // // 커스텀 오버레이가 표시될 위치입니다
+      function customOverlayee() {
+        var customOverlay = new kakao.maps.CustomOverlay({
+          map: map,
+          clickable: true,
+          position: markerPosition,
+          content: content,
+          yAnchor: 1,
+        });
+        customOverlay.setMap(map);
+        customoverlays.push(customOverlay);
+      }
+
+      function removeCustomOverlayee() {
+        for (let i = 0; i < customoverlays.length; i++) {
+          customoverlays[i].setMap(null);
+        }
+        customoverlays = [];
+      }
 
       kakao.maps.event.addListener(marker, "click", function () {
-        customOverlay.setMap(map);
+        // customOverlay.setMap(map);
+        customOverlayee();
       });
 
       kakao.maps.event.addListener(map, "click", function () {
-        customOverlay.setMap(null);
+        // customOverlay.setMap(null);
+        removeCustomOverlayee();
       });
 
       itemEl.onclick = function () {
         // displayInfowindow(marker, title);
-        customOverlay.setMap(map);
+        removeCustomOverlayee();
+        customOverlayee();
+        // customOverlay.setMap(map);
         // 지도 중심을 이동 시킵니다
-        map.panTo(placePosition);
+        map.panTo(markerPosition);
       };
     })(marker, places[i].place_name);
 
