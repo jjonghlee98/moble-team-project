@@ -6,34 +6,39 @@ const new_birth_year = document.getElementById("birth-box__year");
 const new_birth_month = document.getElementById("birth-box__month");
 const new_birth_day = document.getElementById("birth-box__day");
 
+let passPass = false;
+let nickPass = false;
+
+
 // new password checked
 re_new_password.addEventListener("blur", () => {
   if (re_new_password.value != new_password.value) {
     console.log("불일치");
   } else {
     console.log("일치");
+    passPass = true;
   }
 });
 // new password checked
 
+
 // new nickname checked
 new_nickname.addEventListener("blur", () => {
-  const new_nick = {
-    new_nick: new_nickname.value,
-  };
+  const new_nick = { new_nick: new_nickname.value, };
 
   console.log(new_nick);
   console.log(JSON.stringify(new_nick));
-  fetch("sts 그 어딘가...", {
+  fetch("/myPage/myInfo/webDatasetting", {
     method: "POST",
     headers: { "Content-type": "application.json" },
-    body: JSON.stringify(req),
+    body: JSON.stringify(new_nick),
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.log("response : " + data + "TYPE : " + typeof data);
+    .then((newnickdata) => {
+      console.log("response : " + newnickdata);
       if (Number(data) == 1) {
         alert("사용할 수 있는 닉네임입니다..");
+        nickPass = true;
       } else {
         alert("다시 확인하세요.");
       }
@@ -43,25 +48,29 @@ new_nickname.addEventListener("blur", () => {
 
 // user info saved
 save_data.addEventListener("click", () => {
-  const req = {
-    new_password: new_password.value,
-    re_new_password: re_new_password.value,
-    new_nickname: new_nickname.value,
-    new_gender: document.querySelector('input[name="new-gender"]:checked')
-      .value,
-    new_birth:
-      new_birth_year.value +
-      "-" +
-      new_birth_month.value +
-      "-" +
-      new_birth_day.value,
-  };
+  if (passPass == true && nickPass == true) {
+    const req = {
+      new_password: new_password.value,
+      re_new_password: re_new_password.value,
+      new_nickname: new_nickname.value,
+      new_gender: document.querySelector('input[name="new-gender"]:checked')
+        .value,
+      new_birth:
+        new_birth_year.value +
+        "-" +
+        new_birth_month.value +
+        "-" +
+        new_birth_day.value,
+    };
 
-  console.log(req);
-  console.log(JSON.stringify(req));
+    console.log(req);
+    console.log(JSON.stringify(req));
 
-  alert("회원정보가 수정되었습니다.");
-  location.href = "./myInfo.html";
+    alert("회원정보가 수정되었습니다.");
+    location.href = "./myInfo.html";
+  } else {
+    alert("");
+  }
 });
 // user info saved
 
