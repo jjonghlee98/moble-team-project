@@ -282,8 +282,7 @@ const data = [
   },
 ];
 
-// console.log('바로실행');
-
+// fetch 예시
 //   const req = {
 //     u_id: userId.value,
 //     u_pw: userPw.value,
@@ -313,14 +312,18 @@ const h1 = document.getElementsByTagName("h1");
 const cafeRoadAddress = document.getElementsByClassName("road_address");
 const cafeAddress = document.getElementsByClassName("address");
 const phoneNum = document.getElementsByClassName("phone");
-const dateInfo = data[0]["documents"];
-
-//마커를 담을 배열
-let markers = [];
-let polylines = [];
-
+const ingiGender = document.getElementById("ingi-gender");
+const ingiAge = document.getElementById("ingi-age");
 const ingiDo = document.getElementById("ingi-do");
 const ingiSi = document.getElementById("ingi-si");
+const ingiSearch = document.getElementById("ingi-search");
+const dateInfo = data[0]["documents"];
+
+// 마커를 담을 배열
+let markers = [];
+// 폴리라인을 담을 배열
+let polylines = [];
+
 // 페이지 접속하자마자 실행할 수 있도록 DOMContentLoaded 이벤트 생성
 window.addEventListener("DOMContentLoaded", () => {
   console.log("바로실행");
@@ -329,30 +332,74 @@ window.addEventListener("DOMContentLoaded", () => {
     headers: { "Content-Type": "application/json" },
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.log("response : " + data);
-
-      // select -> do
-      const testData = ["전체", "충남", "아산", "충북", "전남"];
-      console.log(testData);
+    .then((doData) => {
+      console.log("response : " + doData);
 
       isDoOptionExisted = false;
-      ingiDo.addEventListener("focus", () => {
-        if (!isDoOptionExisted) {
-          isDayOptionExisted = true;
-          for (let i = 1; i < testData.length; i++) {
-            const DoOption = document.createElement("option");
+      isSiOptionExisted = false;
 
-            DoOption.setAttribute("value", testData[i]);
-            DoOption.innerText = testData[i];
-            ingiDo.appendChild(DoOption);
+      // select -> do
+      ingiDo.addEventListener("click", () => {
+        if (!isDoOptionExisted) {
+          isDoOptionExisted = true;
+          for (let i = 1; i < doData.length; i++) {
+            const doOption = document.createElement("option");
+
+            doOption.setAttribute("value", doData[i]);
+            doOption.innerText = doData[i];
+            ingiDo.appendChild(doOption);
           }
         }
+        console.log(ingiDo.value);
 
-        // 여기에 fetch 적용해서 해당 value에 해당하는 데이터 받아와야 함
+        const req = ingiDo.value;
+        fetch("/popularCourse/getSi", {
+          method: "POST",
+          headers: { "Content-Type": "applycation/json" },
+          body: JSON.stringify(req),
+        })
+          .then((response) => response.json())
+          .then((siData) => {
+            console.log("response: " + siData);
+
+            // select -> si
+            ingiSi.addEventListener("click", () => {
+              if (!isSiOptionExisted) {
+                isSiOptionExisted = true;
+                for (let i = 0; i < siData.length; i++) {
+                  const siOption = document.createElement("option");
+
+                  siOption.setAttribute("value", siData[i]);
+                  siOption.innerText = siData[i];
+                  ingiSi.appendChild(siOption);
+                }
+              }
+            });
+          });
       });
     });
 });
+
+// 모든 옵션을 선택한 후, 검색버튼을 눌렀을 때의 이벤트 시작
+ingiSearch.addEventListener("click", () => {
+  const req = {
+    gender: ingiGender.value,
+    age: ingiAge.value,
+    location_do: ingiDo.value,
+    location_si: ingiSi.value,
+  };
+  fetch("/popularCourse/getCatCourse", {
+    method: "POST",
+    headers: { "Content-Type": "applycation/json" },
+    body: JSON.stringify(req),
+  })
+    .then((response) => response.json())
+    .then((ingiData) => {
+      // ingiData를 기반으로 아이템을 생성하는 코드 삽입
+      addItems(ingiData);
+    });
+});
+// 모든 옵션을 선택한 후, 검색버튼을 눌렀을 때의 이벤트 끝
 
 // 지도에 표시할 선을 생성합니다
 function addPolyline(firstPosition, secondPosition, idx) {
@@ -367,7 +414,7 @@ function addPolyline(firstPosition, secondPosition, idx) {
   });
   polyline.setMap(map);
   polylines.push(polyline);
-  
+
   return polyline;
 }
 
@@ -409,104 +456,106 @@ function removeMarker() {
   markers = [];
 }
 
-for (let i = 0; i < dateInfo.length; i++) {
-  // 끼야아아아악 힘들어 죽는줄~~~~~~~~~~~~~~~
-  let r_address =
-    dateInfo[i].r_do +
-    " " +
-    dateInfo[i].r_si +
-    " " +
-    dateInfo[i].r_gu +
-    " " +
-    dateInfo[i].r_dong;
+function addItems(dateInfo) {
+  for (let i = 0; i < dateInfo.length; i++) {
+    // 끼야아아아악 힘들어 죽는줄~~~~~~~~~~~~~~~
+    let r_address =
+      dateInfo[i].r_do +
+      " " +
+      dateInfo[i].r_si +
+      " " +
+      dateInfo[i].r_gu +
+      " " +
+      dateInfo[i].r_dong;
 
-  let c_address =
-    dateInfo[i].c_do +
-    " " +
-    dateInfo[i].c_si +
-    " " +
-    dateInfo[i].c_gu +
-    " " +
-    dateInfo[i].c_dong;
+    let c_address =
+      dateInfo[i].c_do +
+      " " +
+      dateInfo[i].c_si +
+      " " +
+      dateInfo[i].c_gu +
+      " " +
+      dateInfo[i].c_dong;
 
-  let choiceEl = document.createElement("div"),
-    itemStr =
+    let choiceEl = document.createElement("div"),
+      itemStr =
+        "<div>" +
+        "<div class='ingi-list__description'>" +
+        "<h5 class='first'>" +
+        dateInfo[i].r_name +
+        "</h5>" +
+        "<div class='first__item'>" +
+        "<span class='first__description'>" +
+        r_address +
+        "</span>";
+
+    if (dateInfo[i].r_phone) {
+      itemStr += "<span class='tel'>" + dateInfo[i].r_phone + "</span>";
+    }
+    itemStr +=
+      "</div>" +
+      "</div>" +
+      "</div>" +
       "<div>" +
       "<div class='ingi-list__description'>" +
-      "<h5 class='first'>" +
-      dateInfo[i].r_name +
+      "<h5 class='second'>" +
+      dateInfo[i].c_name +
       "</h5>" +
-      "<div class='first__item'>" +
-      "<span class='first__description'>" +
-      r_address +
+      "<div class='second__item'>" +
+      "<span class='second__description'>" +
+      c_address +
       "</span>";
 
-  if (dateInfo[i].r_phone) {
-    itemStr += "<span class='tel'>" + dateInfo[i].r_phone + "</span>";
+    if (dateInfo[i].c_phone) {
+      "<span class='tel'>" + dateInfo[i].c_phone + "</span>";
+    }
+
+    itemStr += "</div>" + "</div>" + "</div>";
+
+    choiceEl.innerHTML = itemStr;
+    choiceEl.className = "ingi-list";
+
+    const area = document.getElementById("items");
+    area.appendChild(choiceEl);
+    // 아이템 띄우기 끝
+
+    // 아이템 클릭 이벤트 시작
+    const ingiList = document.getElementsByClassName("ingi-list");
+    ingiList[i].addEventListener("click", () => {
+      removeMarker();
+      removePolyline();
+      // 레스트랑 마커 시작
+      console.log("레스토랑: " + dateInfo[i].r_lat + ", " + dateInfo[i].r_lon);
+      let firstPosition = new kakao.maps.LatLng(
+          dateInfo[i]["r_lat"],
+          dateInfo[i]["r_lon"]
+        ),
+        firstMessage = dateInfo[i]["r_name"];
+
+      console.log(firstPosition, firstMessage);
+      addMarker(firstPosition, i);
+      // displayMarker(firstPosition, firstMessage);
+      // 레스트랑 마커 끝
+
+      // 카페 마커 시작
+      // removeMarker();
+      console.log("카페: " + dateInfo[i].c_lat + ", " + dateInfo[i].c_lon);
+      let secondPosition = new kakao.maps.LatLng(
+          dateInfo[i]["c_lat"],
+          dateInfo[i]["c_lon"]
+        ),
+        secondMessage = dateInfo[i]["c_name"];
+
+      console.log(secondPosition, secondMessage);
+      addMarker(secondPosition, i);
+      // displayMarker(secondPosition, secondMessage);
+      // 카페 마커 끝
+      console.log("first: " + firstPosition + ", second: " + secondPosition);
+
+      // 식당, 카페 폴리라인 연결
+      addPolyline(firstPosition, secondPosition, i);
+    });
+
+    // 아이템 클릭 이벤트 끝
   }
-  itemStr +=
-    "</div>" +
-    "</div>" +
-    "</div>" +
-    "<div>" +
-    "<div class='ingi-list__description'>" +
-    "<h5 class='second'>" +
-    dateInfo[i].c_name +
-    "</h5>" +
-    "<div class='second__item'>" +
-    "<span class='second__description'>" +
-    c_address +
-    "</span>";
-
-  if (dateInfo[i].c_phone) {
-    "<span class='tel'>" + dateInfo[i].c_phone + "</span>";
-  }
-
-  itemStr += "</div>" + "</div>" + "</div>";
-
-  choiceEl.innerHTML = itemStr;
-  choiceEl.className = "ingi-list";
-
-  const area = document.getElementById("items");
-  area.appendChild(choiceEl);
-  // 아이템 띄우기 끝
-
-  // 아이템 클릭 이벤트 시작
-  const ingiList = document.getElementsByClassName("ingi-list");
-  ingiList[i].addEventListener("click", () => {
-    removeMarker();
-    removePolyline();
-    // 레스트랑 마커 시작
-    console.log("레스토랑: " + dateInfo[i].r_lat + ", " + dateInfo[i].r_lon);
-    let firstPosition = new kakao.maps.LatLng(
-        dateInfo[i]["r_lat"],
-        dateInfo[i]["r_lon"]
-      ),
-      firstMessage = dateInfo[i]["r_name"];
-
-    console.log(firstPosition, firstMessage);
-    addMarker(firstPosition, i);
-    // displayMarker(firstPosition, firstMessage);
-    // 레스트랑 마커 끝
-
-    // 카페 마커 시작
-    // removeMarker();
-    console.log("카페: " + dateInfo[i].c_lat + ", " + dateInfo[i].c_lon);
-    let secondPosition = new kakao.maps.LatLng(
-        dateInfo[i]["c_lat"],
-        dateInfo[i]["c_lon"]
-      ),
-      secondMessage = dateInfo[i]["c_name"];
-
-    console.log(secondPosition, secondMessage);
-    addMarker(secondPosition, i);
-    // displayMarker(secondPosition, secondMessage);
-    // 카페 마커 끝
-    console.log("first: " + firstPosition + ", second: " + secondPosition);
-
-    // 식당, 카페 폴리라인 연결
-    addPolyline(firstPosition, secondPosition, i);
-  });
-
-  // 아이템 클릭 이벤트 끝
 }
