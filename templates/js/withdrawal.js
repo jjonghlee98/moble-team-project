@@ -6,23 +6,25 @@ var select_index =
 
 wd_btn.addEventListener("click", (e) => {
   e.preventDefault();
-  const wd_pw = {
-    wd_pw: wd_password.value,
+  const req = {
+    u_id: "로그인할 때 세션에 저장되어지는 u_id값",
+    u_pw: wd_password.value,
+    reason: wd_select.options[select_index].value,
   };
-  // console.log([document.getElementById("withdrawal_select").selelctedIndex].text);
+  console.log([document.getElementById("withdrawal_select").selelctedIndex].text);
 
   //회원탈퇴 선택창 팝업
   var result = confirm("회원 탈퇴를 하시겠습니까?");
   if (result) {
     alert("탈퇴 처리되었습니다.");
     // location.href = "./main.html";
-    console.log(wd_pw);
+    console.log(req);
     console.log("탈퇴사유:" + wd_select.options[select_index].value);
-    console.log(JSON.stringify(wd_pw));
+    console.log(JSON.stringify(req));
     fetch("/myPage/myInfo/withdrawal", {
       method: "POST",
       headers: { "Content-type": "application.json" },
-      body: JSON.stringify(wd_pw),
+      body: JSON.stringify(req),
     })
       .then((response) => response.json())
       .then((data) => {
