@@ -282,6 +282,33 @@ const data = [
   },
 ];
 
+// console.log('바로실행');
+
+//   const req = {
+//     u_id: userId.value,
+//     u_pw: userPw.value,
+//     u_nick: userNick.value,
+//     birth: birthYear.value + "-" + birthMonth.value + "-" + birthDay.value,
+//     gender: document.querySelector('input[name="gender"]:checked').value,
+//   };
+//   console.log(req);
+//   console.log(JSON.stringify(req));
+//   fetch("/signttt", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(req),
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log("response : " + data + " TYPE : " + typeof data);
+//       if (Number(data) == 1) {
+//         // form.submit();
+//         //goreplace(/sign/signUp);
+//       } else {
+//         alert("다시 확인해!!!!");
+//       }
+//     });
+
 const h1 = document.getElementsByTagName("h1");
 const cafeRoadAddress = document.getElementsByClassName("road_address");
 const cafeAddress = document.getElementsByClassName("address");
@@ -291,6 +318,41 @@ const dateInfo = data[0]["documents"];
 //마커를 담을 배열
 let markers = [];
 let polylines = [];
+
+const ingiDo = document.getElementById("ingi-do");
+const ingiSi = document.getElementById("ingi-si");
+// 페이지 접속하자마자 실행할 수 있도록 DOMContentLoaded 이벤트 생성
+window.addEventListener("DOMContentLoaded", () => {
+  console.log("바로실행");
+  fetch("/popularCourse/getDo", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response : " + data);
+
+      // select -> do
+      const testData = ["전체", "충남", "아산", "충북", "전남"];
+      console.log(testData);
+
+      isDoOptionExisted = false;
+      ingiDo.addEventListener("focus", () => {
+        if (!isDoOptionExisted) {
+          isDayOptionExisted = true;
+          for (let i = 1; i < testData.length; i++) {
+            const DoOption = document.createElement("option");
+
+            DoOption.setAttribute("value", testData[i]);
+            DoOption.innerText = testData[i];
+            ingiDo.appendChild(DoOption);
+          }
+        }
+
+        // 여기에 fetch 적용해서 해당 value에 해당하는 데이터 받아와야 함
+      });
+    });
+});
 
 // 지도에 표시할 선을 생성합니다
 function addPolyline(firstPosition, secondPosition, idx) {
@@ -441,7 +503,7 @@ for (let i = 0; i < dateInfo.length; i++) {
     // displayMarker(secondPosition, secondMessage);
     // 카페 마커 끝
     console.log("first: " + firstPosition + ", second: " + secondPosition);
-    
+
     // 식당, 카페 폴리라인 연결
     addPolyline(firstPosition, secondPosition, i);
   });
