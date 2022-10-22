@@ -160,6 +160,19 @@
 
 .first__description {
   font-size: 0.85em;
+  border: none;
+  border-radius: 8px;
+  background: #ff5757;
+  padding: 0.25em;
+  color: white;
+}
+
+.first {
+  border: 1px solid #eee;
+  background: #ff5757;
+  color: white;
+  border-radius: 12px;
+  padding: 0.25em 0;
 }
 
 .second__item {
@@ -171,6 +184,29 @@
 
 .second__description {
   font-size: 0.85em;
+  border: none;
+  border-radius: 8px;
+  background: #ff5757;
+  padding: 0.25em;
+  color: white;
+}
+
+.second {
+  border: 1px solid #eee;
+  background: #ff5757;
+  color: white;
+  border-radius: 12px;
+  padding: 0.25em 0;
+}
+
+.tel {
+  margin-top: 0.25em;
+  font-size: 0.85em;
+  padding: 0.25em;
+  border: none;
+  border-radius: 8px;
+  background: #ff5757;
+  color: white;
 }
 
 .custom_content {
