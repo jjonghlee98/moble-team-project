@@ -14,17 +14,17 @@
     <div class="findId">
       <div class="findId-container">
         <div id="findId-info__nick">
-          <input type="text" placeholder="닉네임을 입력하세요." />
+          <input type="text" placeholder="닉네임을 입력하세요." id="findId-nick"/>
         </div>
         <div id="findId-info__birth">
           <select name="birth-year" id="birth-year">
-            <option selected>출생년도</option>
+            <option disabled selected>출생년도</option>
           </select>
           <select name="birth-month" id="birth-month">
-            <option selected>월</option>
+            <option disabled selected>월</option>
           </select>
           <select name="birth-day" id="birth-day">
-            <option selected>일</option>
+            <option disabled selected>일</option>
           </select>
         </div>
         <div id="findId__button">
@@ -32,5 +32,6 @@
         </div>
       </div>
     </div>
+    <script src="./js/findid.js"></script>
   </body>
 </html>
