@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Find PW</title>
+    <link rel="stylesheet" href="./css/findPw.css" />
+  </head>
+  <body>
+    <div class="findPw">
+      <div class="findPw-container">
+        <div id="findPw-info__id">
+          <input type="text" placeholder="아이디를 입력하세요." id="findPw-id"/>
+        </div>
+        <div id="findPw-info__nick">
+          <input type="text" placeholder="닉네임을 입력하세요." id="findPw-nick"/>
+        </div>
+        <div id="findPw-info__birth">
+          <select name="birth-year" id="birth-year">
+            <option disabled selected>출생년도</option>
+          </select>
+          <select name="birth-month" id="birth-month">
+            <option disabled selected>월</option>
+          </select>
+          <select name="birth-day" id="birth-day">
+            <option disabled selected>일</option>
+          </select>
+        </div>
+        <div id="findPw__button">
+          <button type="button">아이디 찾기</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/findpw.js"></script>
+  </body>
+</html>
