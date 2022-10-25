@@ -54,13 +54,13 @@ window.addEventListener("DOMContentLoaded", () => {
           .then((siData) => {
             console.log("시 데이터: " + siData);
             isSiOptionExisted = false;
-            
+
             // select -> si
             if (!isSiOptionExisted) {
               isSiOptionExisted = true;
-              while(ingiSi.lastChild){
-            ingiSi.removeChild(ingiSi.lastChild);
-}
+              while (ingiSi.lastChild) {
+                ingiSi.removeChild(ingiSi.lastChild);
+              }
               for (let i = 0; i < siData.length; i++) {
                 const siOption = document.createElement("option");
 
