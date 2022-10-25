@@ -214,8 +214,4 @@ birthDayEl.addEventListener("focus", () => {
       birthDayEl.appendChild(DayOption);
     }
   }
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 733974d2a06b8fc182e240e3c537c4e4b894db44
