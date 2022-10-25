@@ -282,32 +282,6 @@ const data = [
   },
 ];
 
-// fetch 예시
-//   const req = {
-//     u_id: userId.value,
-//     u_pw: userPw.value,
-//     u_nick: userNick.value,
-//     birth: birthYear.value + "-" + birthMonth.value + "-" + birthDay.value,
-//     gender: document.querySelector('input[name="gender"]:checked').value,
-//   };
-//   console.log(req);
-//   console.log(JSON.stringify(req));
-//   fetch("/signttt", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(req),
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log("response : " + data + " TYPE : " + typeof data);
-//       if (Number(data) == 1) {
-//         // form.submit();
-//         //goreplace(/sign/signUp);
-//       } else {
-//         alert("다시 확인해!!!!");
-//       }
-//     });
-
 const h1 = document.getElementsByTagName("h1");
 const cafeRoadAddress = document.getElementsByClassName("road_address");
 const cafeAddress = document.getElementsByClassName("address");
@@ -328,7 +302,6 @@ let doDatas;
 
 // 페이지 접속하자마자 실행할 수 있도록 DOMContentLoaded 이벤트 생성
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("바로실행");
   fetch("/popularCourse/getDo", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
@@ -339,7 +312,6 @@ window.addEventListener("DOMContentLoaded", () => {
       doDatas = doData;
 
       isDoOptionExisted = false;
-      isSiOptionExisted = false;
 
       // select -> do
       if (!isDoOptionExisted) {
@@ -353,11 +325,11 @@ window.addEventListener("DOMContentLoaded", () => {
           ingiDo.appendChild(doOption);
         }
       }
-      console.log(ingiDo.value);
-
-      ingiDo.addEventListener("focus", () => {
+      ingiDo.addEventListener("change", () => {
         let selectValue = ingiDo.options[ingiDo.selectedIndex].value;
+        console.log("선택: " + selectValue);
         const req = selectValue;
+
         fetch("/popularCourse/getSi", {
           method: "POST",
           headers: { "Content-Type": "applycation/json" },
@@ -365,15 +337,19 @@ window.addEventListener("DOMContentLoaded", () => {
         })
           .then((response) => response.json())
           .then((siData) => {
-            console.log("response: " + siData);
-
+            console.log("시 데이터: " + siData);
+            isSiOptionExisted = false;
+            
             // select -> si
             if (!isSiOptionExisted) {
               isSiOptionExisted = true;
+              while(ingiSi.lastChild){
+            ingiSi.removeChild(ingiSi.lastChild);
+}
               for (let i = 0; i < siData.length; i++) {
                 const siOption = document.createElement("option");
 
-                siOption.setAttribute("value", siData[i]);
+                siOption.setAttribute("value", selectValue);
                 siOption.innerText = siData[i];
                 ingiSi.appendChild(siOption);
               }
@@ -382,8 +358,6 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
 });
-
-console.log(doDatas);
 
 // 모든 옵션을 선택한 후, 검색버튼을 눌렀을 때의 이벤트 시작
 ingiSearch.addEventListener("click", () => {

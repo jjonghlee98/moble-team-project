@@ -1,414 +1,385 @@
-const data = [
-  {
-    documents: [
-      {
-        r_name: "아시아음식점",
-        r_phone: null,
-        r_lon: "127.147516",
-        r_lat: "36.808204",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: null,
-        r_dong: null,
-        r_cat: null,
-        r_id: "5",
-        r_url: null,
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "중국느낌카페",
-        c_phone: null,
-        c_lon: "127.147729",
-        c_lat: "36.809026",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: null,
-        c_dong: null,
-        c_cat: null,
-        c_id: "2",
-        c_url: null,
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-      {
-        r_name: "인도음식점",
-        r_phone: null,
-        r_lon: "127.148715",
-        r_lat: "36.809342",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: null,
-        r_dong: null,
-        r_cat: null,
-        r_id: "4",
-        r_url: null,
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "볼베어파크 천안점",
-        c_phone: "",
-        c_lon: "127.150594",
-        c_lat: "36.807872",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: "동남구",
-        c_dong: "문화동",
-        c_cat: "키즈카페",
-        c_id: "836565346",
-        c_url: "http://place.map.kakao.com/836565346",
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-      {
-        r_name: "중식당",
-        r_phone: null,
-        r_lon: "127.147161",
-        r_lat: "36.807329",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: "동남구",
-        r_dong: null,
-        r_cat: null,
-        r_id: "1",
-        r_url: null,
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "일본느낌카페",
-        c_phone: null,
-        c_lon: "127.149570",
-        c_lat: "36.809585",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: null,
-        c_dong: null,
-        c_cat: null,
-        c_id: "1",
-        c_url: null,
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-      {
-        r_name: "아시아음식점",
-        r_phone: null,
-        r_lon: "127.147516",
-        r_lat: "36.808204",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: null,
-        r_dong: null,
-        r_cat: null,
-        r_id: "5",
-        r_url: null,
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "일본느낌카페",
-        c_phone: null,
-        c_lon: "127.149570",
-        c_lat: "36.809585",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: null,
-        c_dong: null,
-        c_cat: null,
-        c_id: "1",
-        c_url: null,
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-      {
-        r_name: "아시아음식점",
-        r_phone: null,
-        r_lon: "127.147516",
-        r_lat: "36.808204",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: null,
-        r_dong: null,
-        r_cat: null,
-        r_id: "5",
-        r_url: null,
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "볼베어파크 천안점",
-        c_phone: "",
-        c_lon: "127.150594",
-        c_lat: "36.807872",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: "동남구",
-        c_dong: "문화동",
-        c_cat: "키즈카페",
-        c_id: "836565346",
-        c_url: "http://place.map.kakao.com/836565346",
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-      {
-        r_name: "중식당",
-        r_phone: null,
-        r_lon: "127.147161",
-        r_lat: "36.807329",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: "동남구",
-        r_dong: null,
-        r_cat: null,
-        r_id: "1",
-        r_url: null,
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "볼베어파크 천안점",
-        c_phone: "",
-        c_lon: "127.150594",
-        c_lat: "36.807872",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: "동남구",
-        c_dong: "문화동",
-        c_cat: "키즈카페",
-        c_id: "836565346",
-        c_url: "http://place.map.kakao.com/836565346",
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-      {
-        r_name: "마운틴피시텔 레스토랑",
-        r_phone: "041-555-3612",
-        r_lon: "127.148424",
-        r_lat: "36.809057",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: "동남구",
-        r_dong: "대흥동",
-        r_cat: "인도음식",
-        r_id: "13110298",
-        r_url: "http://place.map.kakao.com/13110298",
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "볼베어파크 천안점",
-        c_phone: "",
-        c_lon: "127.150594",
-        c_lat: "36.807872",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: "동남구",
-        c_dong: "문화동",
-        c_cat: "키즈카페",
-        c_id: "836565346",
-        c_url: "http://place.map.kakao.com/836565346",
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-      {
-        r_name: "마녀주방 천안점",
-        r_phone: "070-4177-1116",
-        r_lon: "127.155689",
-        r_lat: "36.817663",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: "동남구",
-        r_dong: "신부동",
-        r_cat: "양식",
-        r_id: "1924771438",
-        r_url: "http://place.map.kakao.com/1924771438",
-        r_image_url:
-          "https://postfiles.pstatic.net/MjAyMjA2MDRfMjI3/MDAxNjU0MzM1Njc3ODE2.nEi3X8ZSAl4c13s_pIBQ6D8Hsad8CURfZq90jC4GhYYg.z47t2sEWtfBQWXEua-HOKEtMxlJzwBxdRTkOUyOv7oMg.JPEG.tjfghk0414/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C_(1).jpg?type=w773",
-        c_name: "마녀주방 천안점",
-        c_phone: "070-4177-1116",
-        c_lon: "127.155689",
-        c_lat: "36.817663",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: "동남구",
-        c_dong: "신부동",
-        c_cat: "양식",
-        c_id: "1924771438",
-        c_url: "http://place.map.kakao.com/1924771438",
-        c_image_url:
-          "https://postfiles.pstatic.net/MjAyMjA2MDRfMjI3/MDAxNjU0MzM1Njc3ODE2.nEi3X8ZSAl4c13s_pIBQ6D8Hsad8CURfZq90jC4GhYYg.z47t2sEWtfBQWXEua-HOKEtMxlJzwBxdRTkOUyOv7oMg.JPEG.tjfghk0414/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C_(1).jpg?type=w773",
-      },
-      {
-        r_name: "일식당",
-        r_phone: null,
-        r_lon: "126.999888",
-        r_lat: "36.773001",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: null,
-        r_dong: null,
-        r_cat: null,
-        r_id: "2",
-        r_url: null,
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "브런치카페",
-        c_phone: null,
-        c_lon: "126.947718",
-        c_lat: "36.864104",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: null,
-        c_dong: null,
-        c_cat: null,
-        c_id: "4",
-        c_url: null,
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-      {
-        r_name: "인도음식점",
-        r_phone: null,
-        r_lon: "127.148715",
-        r_lat: "36.809342",
-        r_do: "충남",
-        r_si: "천안시",
-        r_gu: null,
-        r_dong: null,
-        r_cat: null,
-        r_id: "4",
-        r_url: null,
-        r_image_url:
-          "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fsearch.pstatic.net%2Fcommon%2F%3FautoRotate%3Dtrue%26quality%3D100%26type%3Df640_380%26src%3Dhttps%253A%252F%252Fldb-phinf.pstatic.net%252F20151104_4%252F1446624021652wtqLw_JPEG%252F167054573040236_0.jpg%22&type=ff500_300",
-        c_name: "일본느낌카페",
-        c_phone: null,
-        c_lon: "127.149570",
-        c_lat: "36.809585",
-        c_do: "충남",
-        c_si: "천안시",
-        c_gu: null,
-        c_dong: null,
-        c_cat: null,
-        c_id: "1",
-        c_url: null,
-        c_image_url: "http://assets.bwbx.io/images/iTVLb._zKs3I/v0/488x-1.jpg",
-      },
-    ],
-    meta: {
-      total_count: 46,
-      is_end: false,
-      pageable_count: 45,
-      same_name: null,
-    },
-  },
-];
+//지도 불러오기
 
-const h1 = document.getElementsByTagName("h1");
-const cafeRoadAddress = document.getElementsByClassName("road_address");
-const cafeAddress = document.getElementsByClassName("address");
-const phoneNum = document.getElementsByClassName("phone");
-const ingiGender = document.getElementById("ingi-gender");
-const ingiAge = document.getElementById("ingi-age");
-const ingiDo = document.getElementById("ingi-do");
-const ingiSi = document.getElementById("ingi-si");
-const ingiSearch = document.getElementById("ingi-search");
-const dateInfo = data[0]["documents"];
+//마커를 담을 배열
+var markers = [];
+let customoverlays = [];
 
-// 마커를 담을 배열
-let markers = [];
-// 폴리라인을 담을 배열
-let polylines = [];
+var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+  mapOption = {
+    center: new kakao.maps.LatLng(37.56646, 126.98121), // 지도의 중심좌표
+    level: 3, // 지도의 확대 레벨
+  };
 
-let doDatas;
+// 지도를 생성한다
+var map = new kakao.maps.Map(mapContainer, mapOption);
 
-// 페이지 접속하자마자 실행할 수 있도록 DOMContentLoaded 이벤트 생성
-window.addEventListener("DOMContentLoaded", () => {
-  fetch("/popularCourse/getDo", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((response) => response.json())
-    .then((doData) => {
-      console.log("response : " + doData);
-      doDatas = doData;
+//현재 위치 가져오기
+function locationLoadSuccess(pos) {
+  // 현재 위치 받아오기
+  var currentPos = new kakao.maps.LatLng(
+    pos.coords.latitude,
+    pos.coords.longitude
+  );
 
-      isDoOptionExisted = false;
+  // 지도 이동(기존 위치와 가깝다면 부드럽게 이동)
+  map.panTo(currentPos);
 
-      // select -> do
-      if (!isDoOptionExisted) {
-        isDoOptionExisted = true;
-        for (let i = 1; i < doData.length; i++) {
-          const doOption = document.createElement("option");
+  // 마커를 생성하고 지도에 표시합니다
+  var placePosition = new kakao.maps.LatLng(
+      pos.coords.latitude,
+      pos.coords.longitude
+    ),
+    marker = addMarker(placePosition, null); // 검색 결과 항목 Element를 생성합니다
 
-          doOption.setAttribute("value", doData[i]);
-          doOption.setAttribute("id", "ingiDoOption");
-          doOption.innerText = doData[i];
-          ingiDo.appendChild(doOption);
+  // 기존에 마커가 있다면 제거
+  marker.setMap(null);
+
+  // 이상하게 뜨는 건 여전함
+  // marker.setMap(map);
+
+  // 내위치 기준으로 선택했을 경우의 레스토랑, 카페 검색 이벤트 시작
+  let resButton = document.getElementsByClassName("res-button");
+  let cafeButton = document.getElementsByClassName("cafe-button");
+
+  // 레스토랑 검색
+  for (let i = 0; i < resButton.length; i++) {
+    resButton[i].addEventListener("click", () => {
+      marker.setMap(null);
+      var places = new kakao.maps.services.Places();
+
+      var callback = function (result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+          console.log(result);
+
+          if (status === kakao.maps.services.Status.OK) {
+            // 정상적으로 검색이 완료됐으면
+            // 검색 목록과 마커를 표출합니다
+            displayPlaces(result);
+          }
         }
-      }
-      ingiDo.addEventListener("change", () => {
-        let selectValue = ingiDo.options[ingiDo.selectedIndex].value;
-        console.log("선택: " + selectValue);
-        const req = selectValue;
-
-        fetch("/popularCourse/getSi", {
-          method: "POST",
-          headers: { "Content-Type": "applycation/json" },
-          body: JSON.stringify(req),
-        })
-          .then((response) => response.json())
-          .then((siData) => {
-            console.log("시 데이터: " + siData);
-            isSiOptionExisted = false;
-
-            // select -> si
-            if (!isSiOptionExisted) {
-              isSiOptionExisted = true;
-              while (ingiSi.lastChild) {
-                ingiSi.removeChild(ingiSi.lastChild);
-              }
-              for (let i = 0; i < siData.length; i++) {
-                const siOption = document.createElement("option");
-
-                siOption.setAttribute("value", selectValue);
-                siOption.innerText = siData[i];
-                ingiSi.appendChild(siOption);
-              }
-            }
-          });
+      };
+      places.categorySearch("FD6", callback, {
+        // Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+        location: new kakao.maps.LatLng(
+          pos.coords.latitude,
+          pos.coords.longitude
+        ),
+        radius: resButton[i].value,
       });
     });
-});
+  }
+  // 카페 검색
+  for (let i = 0; i < cafeButton.length; i++) {
+    cafeButton[i].addEventListener("click", () => {
+      marker.setMap(null);
+      var places = new kakao.maps.services.Places();
 
-// 모든 옵션을 선택한 후, 검색버튼을 눌렀을 때의 이벤트 시작
-ingiSearch.addEventListener("click", () => {
-  const req = {
-    gender: ingiGender.value,
-    age: ingiAge.value,
-    location_do: ingiDo.value,
-    location_si: ingiSi.value,
-  };
-  fetch("/popularCourse/getCatCourse", {
-    method: "POST",
-    headers: { "Content-Type": "applycation/json" },
-    body: JSON.stringify(req),
-  })
-    .then((response) => response.json())
-    .then((ingiData) => {
-      // ingiData를 기반으로 아이템을 생성하는 코드 삽입
-      addItems(ingiData);
+      var callback = function (result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+          console.log(result);
+
+          if (status === kakao.maps.services.Status.OK) {
+            // 정상적으로 검색이 완료됐으면
+            // 검색 목록과 마커를 표출합니다
+            displayPlaces(result);
+          }
+        }
+      };
+      places.categorySearch("CE7", callback, {
+        // Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+        location: new kakao.maps.LatLng(
+          pos.coords.latitude,
+          pos.coords.longitude
+        ),
+        radius: cafeButton[i].value,
+      });
     });
-});
-// 모든 옵션을 선택한 후, 검색버튼을 눌렀을 때의 이벤트 끝
-
-// 지도에 표시할 선을 생성합니다
-function addPolyline(firstPosition, secondPosition, idx) {
-  linePath = [firstPosition, secondPosition];
-
-  let polyline = new kakao.maps.Polyline({
-    path: linePath, // 선을 구성하는 좌표배열 입니다
-    strokeWeight: 5, // 선의 두께 입니다
-    strokeColor: "#FF5757", // 선의 색깔입니다
-    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-    strokeStyle: "solid", // 선의 스타일입니다
-  });
-  polyline.setMap(map);
-  polylines.push(polyline);
-
-  return polyline;
+  }
+  // 내위치 기준으로 선택했을 경우의 레스토랑, 카페 검색 이벤트 끝
 }
 
-function removePolyline() {
-  for (let i = 0; i < polylines.length; i++) {
-    polylines[i].setMap(null);
+function locationLoadError(pos) {
+  alert("위치 정보를 가져오는데 실패했습니다.");
+}
+
+// 위치 가져오기 버튼 클릭시
+function getCurrentPosBtn() {
+  // 지도에 표시되고 있는 마커를 제거합니다
+  removeMarker();
+
+  navigator.geolocation.getCurrentPosition(
+    locationLoadSuccess,
+    locationLoadError
+  );
+}
+// 현재위치 가져오기 끝
+
+// 장소 검색 객체를 생성합니다
+var ps = new kakao.maps.services.Places();
+
+// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+// 키워드로 장소를 검색합니다
+searchPlaces();
+
+// 키워드 검색을 요청하는 함수입니다
+function searchPlaces() {
+  var keyword = document.getElementById("find-course__searchbar").value;
+
+  if (!keyword.replace(/^\s+|\s+$/g, "")) {
+    // alert("키워드를 입력해주세요!");
+    return false;
   }
-  markers = [];
+
+  // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+  ps.keywordSearch(keyword, placesSearchCB);
+}
+
+// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+function placesSearchCB(data, status, pagination) {
+  if (status === kakao.maps.services.Status.OK) {
+    // 정상적으로 검색이 완료됐으면
+    // 검색 목록과 마커를 표출합니다
+    displayPlaces(data);
+
+    // 페이지 번호를 표출합니다
+    // 잠깐 숨어있어 형이 너 때문에 눈물이 난다.
+    // displayPagination(pagination);
+  } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+    alert("검색 결과가 존재하지 않습니다.");
+    return;
+  } else if (status === kakao.maps.services.Status.ERROR) {
+    alert("검색 결과 중 오류가 발생했습니다.");
+    return;
+  }
+
+  // 아이템을 클릭했을 때 y, x 좌표가 뜬다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  let items = document.getElementsByClassName("item");
+  for (let i = 0; i < data.length; i++) {
+    items[i].addEventListener("click", () => {
+      console.log(data[i].place_name);
+      console.log(data[i].road_address_name);
+      console.log(data[i].address_name);
+      console.log(data[i].y + ", " + data[i].x);
+
+      // 마커
+      var listEl = document.getElementById("placesList"),
+        menuEl = document.getElementsByClassName("find-course-list__container"),
+        fragment = document.createDocumentFragment(),
+        bounds = new kakao.maps.LatLngBounds(),
+        listStr = "";
+
+      // 검색 결과 목록에 추가된 항목들을 제거합니다
+      removeAllChildNods(listEl);
+      // 지도에 표시되고 있는 마커를 제거합니다
+      removeMarker();
+
+      // 마커를 생성하고 지도에 표시합니다
+      var placePosition = new kakao.maps.LatLng(data[i].y, data[i].x),
+        marker = addMarker(placePosition, i),
+        itemEl = getListItem(i, data[i]); // 검색 결과 항목 Element를 생성합니다
+
+      // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+      // LatLngBounds 객체에 좌표를 추가합니다
+      bounds.extend(placePosition);
+      map.panTo(placePosition);
+
+      let resButton = document.getElementsByClassName("res-button");
+      let cafeButton = document.getElementsByClassName("cafe-button");
+      // 레스토랑 검색
+      for (let j = 0; j < resButton.length; j++) {
+        resButton[j].addEventListener("click", () => {
+          console.log(data[i].y + ", " + data[i].x);
+          var places = new kakao.maps.services.Places();
+
+          var callback = function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              console.log(result);
+
+              if (status === kakao.maps.services.Status.OK) {
+                // 정상적으로 검색이 완료됐으면
+                // 검색 목록과 마커를 표출합니다
+                displayPlaces(result);
+              }
+            }
+          };
+          places.categorySearch("FD6", callback, {
+            // Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+            location: new kakao.maps.LatLng(data[i].y, data[i].x),
+            radius: resButton[j].value,
+          });
+        });
+      }
+      // 카페 검색
+      for (let k = 0; k < cafeButton.length; k++) {
+        cafeButton[k].addEventListener("click", () => {
+          console.log(data[i].y + ", " + data[i].x);
+          var places = new kakao.maps.services.Places();
+
+          var callback = function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              console.log(result);
+
+              if (status === kakao.maps.services.Status.OK) {
+                // 정상적으로 검색이 완료됐으면
+                // 검색 목록과 마커를 표출합니다
+                displayPlaces(result);
+              }
+            }
+          };
+          places.categorySearch("CE7", callback, {
+            // Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+            location: new kakao.maps.LatLng(data[i].y, data[i].x),
+            radius: cafeButton[k].value,
+          });
+        });
+      }
+    });
+  }
+}
+
+// 검색 결과 목록과 마커를 표출하는 함수입니다
+function displayPlaces(places) {
+  var listEl = document.getElementById("placesList"),
+    menuEl = document.getElementsByClassName("find-course-list__container"),
+    fragment = document.createDocumentFragment(),
+    bounds = new kakao.maps.LatLngBounds(),
+    listStr = "";
+
+  // 검색 결과 목록에 추가된 항목들을 제거합니다
+  removeAllChildNods(listEl);
+
+  // 지도에 표시되고 있는 마커를 제거합니다
+  removeMarker();
+
+  for (var i = 0; i < places.length; i++) {
+    // 마커를 생성하고 지도에 표시합니다
+    var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+      marker = addMarker(placePosition, i),
+      itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+
+    // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+    // LatLngBounds 객체에 좌표를 추가합니다
+    bounds.extend(placePosition);
+
+    // 마커와 검색결과 항목에 mouseover 했을때
+    // 해당 장소에 인포윈도우에 장소명을 표시합니다
+    // mouseout 했을 때는 인포윈도우를 닫습니다
+    (function (marker, title) {
+      let message = title;
+      let first = places[i].y;
+      let second = places[i].x;
+      let markerPosition = new kakao.maps.LatLng(first, second);
+      let roadAddress = places[i].road_address_name;
+      let address = places[i].address_name;
+      var content =
+        '<div class="custom_content">' +
+        '<div class="place_name">' +
+        "<span>" +
+        message +
+        "</span>" +
+        "</div>" +
+        "<div class='address_name'>" +
+        "<span>" +
+        roadAddress +
+        "</span>" +
+        ", " +
+        "<span>" +
+        address +
+        "</span>" +
+        "</div>" +
+        "</div>";
+
+      // // 커스텀 오버레이가 표시될 위치입니다
+      function customOverlayee() {
+        var customOverlay = new kakao.maps.CustomOverlay({
+          map: map,
+          clickable: true,
+          position: markerPosition,
+          content: content,
+          yAnchor: 1,
+        });
+        customOverlay.setMap(map);
+        customoverlays.push(customOverlay);
+      }
+
+      function removeCustomOverlayee() {
+        for (let i = 0; i < customoverlays.length; i++) {
+          customoverlays[i].setMap(null);
+        }
+        customoverlays = [];
+      }
+
+      kakao.maps.event.addListener(marker, "click", function () {
+        // customOverlay.setMap(map);
+        customOverlayee();
+      });
+
+      kakao.maps.event.addListener(map, "click", function () {
+        // customOverlay.setMap(null);
+        removeCustomOverlayee();
+      });
+
+      itemEl.onclick = function () {
+        // displayInfowindow(marker, title);
+        removeCustomOverlayee();
+        customOverlayee();
+        // customOverlay.setMap(map);
+        // 지도 중심을 이동 시킵니다
+        map.panTo(markerPosition);
+      };
+    })(marker, places[i].place_name);
+
+    fragment.appendChild(itemEl);
+  }
+
+  // 검색결과 항목들을 검색결과 목록 Element에 추가합니다
+  listEl.appendChild(fragment);
+  menuEl.scrollTop = 0;
+
+  // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+  map.setBounds(bounds);
+}
+
+// 검색결과 항목을 Element로 반환하는 함수입니다
+function getListItem(index, places) {
+  var el = document.createElement("li"),
+    itemStr =
+      '<span class="markerbg marker_' +
+      (index + 1) +
+      '"></span>' +
+      '<div class="info">' +
+      "   <h5 id='title'>" +
+      places.place_name +
+      "</h5>";
+
+  if (places.road_address_name) {
+    itemStr +=
+      "    <span class='road_address'>" +
+      places.road_address_name +
+      "</span>" +
+      " / " +
+      '   <span class="jibun gray">' +
+      places.address_name +
+      "</span>";
+  } else {
+    itemStr += "    <span>" + places.address_name + "</span>";
+  }
+
+  itemStr += '  <span class="tel">' + places.phone + "</span>" + "</div>";
+
+  el.innerHTML = itemStr;
+  el.className = "item";
+
+  return el;
 }
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 function addMarker(position, idx, title) {
   var imageSrc = "../images/marker_img.png",
     imageSize = new kakao.maps.Size(52, 57),
-    imageOption = { offset: new kakao.maps.Point(25, 55) };
+    imageOption = { offset: new kakao.maps.Point(27, 69) };
 
   var markerImage = new kakao.maps.MarkerImage(
     imageSrc,
@@ -423,7 +394,6 @@ function addMarker(position, idx, title) {
   marker.setMap(map); // 지도 위에 마커를 표출합니다
   markers.push(marker); // 배열에 생성된 마커를 추가합니다
 
-  map.panTo(position);
   return marker;
 }
 
@@ -435,106 +405,51 @@ function removeMarker() {
   markers = [];
 }
 
-function addItems(dateInfo) {
-  for (let i = 0; i < dateInfo.length; i++) {
-    // 끼야아아아악 힘들어 죽는줄~~~~~~~~~~~~~~~
-    let r_address =
-      dateInfo[i].r_do +
-      " " +
-      dateInfo[i].r_si +
-      " " +
-      dateInfo[i].r_gu +
-      " " +
-      dateInfo[i].r_dong;
+// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
+function displayPagination(pagination) {
+  var paginationEl = document.getElementById("pagination"),
+    fragment = document.createDocumentFragment(),
+    i;
 
-    let c_address =
-      dateInfo[i].c_do +
-      " " +
-      dateInfo[i].c_si +
-      " " +
-      dateInfo[i].c_gu +
-      " " +
-      dateInfo[i].c_dong;
+  // 기존에 추가된 페이지번호를 삭제합니다
+  while (paginationEl.hasChildNodes()) {
+    paginationEl.removeChild(paginationEl.lastChild);
+  }
 
-    let choiceEl = document.createElement("div"),
-      itemStr =
-        "<div>" +
-        "<div class='ingi-list__description'>" +
-        "<h5 class='first'>" +
-        dateInfo[i].r_name +
-        "</h5>" +
-        "<div class='first__item'>" +
-        "<span class='first__description'>" +
-        r_address +
-        "</span>";
+  for (i = 1; i <= pagination.last; i++) {
+    var el = document.createElement("a");
+    el.href = "#";
+    el.innerHTML = i;
 
-    if (dateInfo[i].r_phone) {
-      itemStr += "<span class='tel'>" + dateInfo[i].r_phone + "</span>";
-    }
-    itemStr +=
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "<div>" +
-      "<div class='ingi-list__description'>" +
-      "<h5 class='second'>" +
-      dateInfo[i].c_name +
-      "</h5>" +
-      "<div class='second__item'>" +
-      "<span class='second__description'>" +
-      c_address +
-      "</span>";
-
-    if (dateInfo[i].c_phone) {
-      "<span class='tel'>" + dateInfo[i].c_phone + "</span>";
+    if (i === pagination.current) {
+      el.className = "on";
+    } else {
+      el.onclick = (function (i) {
+        return function () {
+          pagination.gotoPage(i);
+        };
+      })(i);
     }
 
-    itemStr += "</div>" + "</div>" + "</div>";
+    fragment.appendChild(el);
+  }
+  paginationEl.appendChild(fragment);
+}
 
-    choiceEl.innerHTML = itemStr;
-    choiceEl.className = "ingi-list";
+// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+// 인포윈도우에 장소명을 표시합니다
+function displayInfowindow(marker, title) {
+  var content = '<div style="padding:5px; z-index:1;">' + title + "</div>";
 
-    const area = document.getElementById("items");
-    area.appendChild(choiceEl);
-    // 아이템 띄우기 끝
+  infowindow.setContent(content);
+  infowindow.open(map, marker);
+  // const moveLatLon = new window.kakao.maps.LatLng(places[i].y, places[i].x);
+  // map.panTo(moveLatLon); //지도를 부드럽게 이동
+}
 
-    // 아이템 클릭 이벤트 시작
-    const ingiList = document.getElementsByClassName("ingi-list");
-    ingiList[i].addEventListener("click", () => {
-      removeMarker();
-      removePolyline();
-      // 레스트랑 마커 시작
-      console.log("레스토랑: " + dateInfo[i].r_lat + ", " + dateInfo[i].r_lon);
-      let firstPosition = new kakao.maps.LatLng(
-          dateInfo[i]["r_lat"],
-          dateInfo[i]["r_lon"]
-        ),
-        firstMessage = dateInfo[i]["r_name"];
-
-      console.log(firstPosition, firstMessage);
-      addMarker(firstPosition, i);
-      // displayMarker(firstPosition, firstMessage);
-      // 레스트랑 마커 끝
-
-      // 카페 마커 시작
-      // removeMarker();
-      console.log("카페: " + dateInfo[i].c_lat + ", " + dateInfo[i].c_lon);
-      let secondPosition = new kakao.maps.LatLng(
-          dateInfo[i]["c_lat"],
-          dateInfo[i]["c_lon"]
-        ),
-        secondMessage = dateInfo[i]["c_name"];
-
-      console.log(secondPosition, secondMessage);
-      addMarker(secondPosition, i);
-      // displayMarker(secondPosition, secondMessage);
-      // 카페 마커 끝
-      console.log("first: " + firstPosition + ", second: " + secondPosition);
-
-      // 식당, 카페 폴리라인 연결
-      addPolyline(firstPosition, secondPosition, i);
-    });
-
-    // 아이템 클릭 이벤트 끝
+// 검색결과 목록의 자식 Element를 제거하는 함수입니다
+function removeAllChildNods(el) {
+  while (el.hasChildNodes()) {
+    el.removeChild(el.lastChild);
   }
 }
