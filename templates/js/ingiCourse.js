@@ -349,7 +349,7 @@ window.addEventListener("DOMContentLoaded", () => {
               for (let i = 0; i < siData.length; i++) {
                 const siOption = document.createElement("option");
 
-                siOption.setAttribute("value", selectValue);
+                siOption.setAttribute("value", siData[i]);
                 siOption.innerText = siData[i];
                 ingiSi.appendChild(siOption);
               }
