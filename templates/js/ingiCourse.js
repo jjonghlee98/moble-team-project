@@ -324,35 +324,40 @@ let markers = [];
 // 폴리라인을 담을 배열
 let polylines = [];
 
+let doDatas;
+
 // 페이지 접속하자마자 실행할 수 있도록 DOMContentLoaded 이벤트 생성
 window.addEventListener("DOMContentLoaded", () => {
   console.log("바로실행");
   fetch("/popularCourse/getDo", {
-    method: "POST",
+    method: "GET",
     headers: { "Content-Type": "application/json" },
   })
     .then((response) => response.json())
     .then((doData) => {
       console.log("response : " + doData);
+      doDatas = doData;
 
       isDoOptionExisted = false;
       isSiOptionExisted = false;
 
       // select -> do
-      ingiDo.addEventListener("click", () => {
-        if (!isDoOptionExisted) {
-          isDoOptionExisted = true;
-          for (let i = 1; i < doData.length; i++) {
-            const doOption = document.createElement("option");
+      if (!isDoOptionExisted) {
+        isDoOptionExisted = true;
+        for (let i = 1; i < doData.length; i++) {
+          const doOption = document.createElement("option");
 
-            doOption.setAttribute("value", doData[i]);
-            doOption.innerText = doData[i];
-            ingiDo.appendChild(doOption);
-          }
+          doOption.setAttribute("value", doData[i]);
+          doOption.setAttribute("id", "ingiDoOption");
+          doOption.innerText = doData[i];
+          ingiDo.appendChild(doOption);
         }
-        console.log(ingiDo.value);
+      }
+      console.log(ingiDo.value);
 
-        const req = ingiDo.value;
+      ingiDo.addEventListener("focus", () => {
+        let selectValue = ingiDo.options[ingiDo.selectedIndex].value;
+        const req = selectValue;
         fetch("/popularCourse/getSi", {
           method: "POST",
           headers: { "Content-Type": "applycation/json" },
@@ -363,21 +368,22 @@ window.addEventListener("DOMContentLoaded", () => {
             console.log("response: " + siData);
 
             // select -> si
-            ingiSi.addEventListener("click", () => {
-              if (!isSiOptionExisted) {
-                isSiOptionExisted = true;
-                for (let i = 0; i < siData.length; i++) {
-                  const siOption = document.createElement("option");
-                  siOption.setAttribute("value", siData[i]);
-                  siOption.innerText = siData[i];
-                  ingiSi.appendChild(siOption);
-                }
+            if (!isSiOptionExisted) {
+              isSiOptionExisted = true;
+              for (let i = 0; i < siData.length; i++) {
+                const siOption = document.createElement("option");
+
+                siOption.setAttribute("value", siData[i]);
+                siOption.innerText = siData[i];
+                ingiSi.appendChild(siOption);
               }
-            });
+            }
           });
       });
     });
 });
+
+console.log(doDatas);
 
 // 모든 옵션을 선택한 후, 검색버튼을 눌렀을 때의 이벤트 시작
 ingiSearch.addEventListener("click", () => {
