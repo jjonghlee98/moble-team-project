@@ -368,7 +368,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 isSiOptionExisted = true;
                 for (let i = 0; i < siData.length; i++) {
                   const siOption = document.createElement("option");
-
                   siOption.setAttribute("value", siData[i]);
                   siOption.innerText = siData[i];
                   ingiSi.appendChild(siOption);
